@@ -1,0 +1,27 @@
+/* header {
+  background-color: #f9fafb;
+} */
+
+.container {
+  max-width: 1280;
+  margin-left: auto;
+  margin-right: auto;
+  display: flex;
+  /* flex-direction: column; */
+  align-items: center;
+}
+
+.searchbox {
+  padding: 0.5rem;
+  border-radius: 0.25rem;
+  border: 1px solid #d1d5db;
+  width: 100%;
+}
+
+.shrink {
+  flex-shrink: 0;
+}
+
+.snsicon {
+  height: 1.5rem;
+}
