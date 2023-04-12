@@ -3,7 +3,7 @@ import data from "../data";
 // api/posts/1
 export default function handler(req, res) {
   const { postId } = req.query;
-  const { Posts } = data;
+  const { Posts } = data.jsonData;
 
   if (postId) {
     const post = Posts.find((value) => value.id == postId);

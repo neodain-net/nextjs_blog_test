@@ -1,4 +1,5 @@
-export default {
+// export default Datas {
+const jsonData = {
   Trending: [
     {
       id: 1,
@@ -378,3 +379,9 @@ export default {
     },
   ],
 };
+
+const Data = {
+  jsonData,
+};
+
+export default Data;

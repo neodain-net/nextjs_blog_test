@@ -37,6 +37,7 @@ function Post({ data }) {
               className="rounded"
               width={500}
               height={350}
+              alt=""
             />
           </a>
         </Link>
