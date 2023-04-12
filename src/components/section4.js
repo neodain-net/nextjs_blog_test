@@ -19,17 +19,17 @@ export default function section4() {
           <h1 className="font-bold text-4xl py-12">Business</h1>
           <div className="flex flex-col gap-6">
             {/* posts */}
+            {data[0] ? <Post data={data[0]}></Post> : <></>}
             {data[1] ? <Post data={data[1]}></Post> : <></>}
             {data[2] ? <Post data={data[2]}></Post> : <></>}
-            {data[3] ? <Post data={data[3]}></Post> : <></>}
           </div>
         </div>
         <div className="item">
           <h1 className="font-bold text-4xl py-12">Travel</h1>
           <div className="flex flex-col gap-6">
+            {data[3] ? <Post data={data[3]}></Post> : <></>}
             {data[4] ? <Post data={data[4]}></Post> : <></>}
-            {data[5] ? <Post data={data[5]}></Post> : <></>}
-            {data[2] ? <Post data={data[2]}></Post> : <></>}
+            {data[1] ? <Post data={data[1]}></Post> : <></>}
           </div>
         </div>
       </div>
