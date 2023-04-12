@@ -2,12 +2,12 @@ import { Swiper, SwiperSlide } from "swiper/react";
 import Link from "next/link";
 import Image from "next/image";
 import Author from "./_child/author";
-import fetcher from "../lib/fetcher";
+import Fetcher from "../lib/fetcher";
 import Spinner from "./_child/spinner";
 import Error from "./_child/error";
 
 export default function section3() {
-  const { data, isLoading, isError } = fetcher("api/popular");
+  const { data, isLoading, isError } = Fetcher("api/popular");
 
   if (isLoading) return <Spinner></Spinner>;
   if (isError) return <Error></Error>;
@@ -41,7 +41,7 @@ function Post({ data }) {
   return (
     <div className="grid">
       <div className="images">
-        <Link href={`/posts/${id}`}>
+        <Link href={`/posts/id/${id}`}>
           <a>
             <Image src={img || ""} width={600} height={400} />
           </a>
@@ -49,19 +49,19 @@ function Post({ data }) {
       </div>
       <div className="info flex justify-center flex-col py-4">
         <div className="cat">
-          <Link href={`/posts/${id}`}>
+          <Link href={`/posts/id/${id}`}>
             <a className="text-orange-600 hover:text-orange-800">
               {category || "No Category"}
             </a>
           </Link>
-          <Link href={`/posts/${id}`}>
+          <Link href={`/posts/id/${id}`}>
             <a className="text-gray-800 hover:text-gray-600">
               - {published || ""}
             </a>
           </Link>
         </div>
         <div className="title">
-          <Link href={`/posts/${id}`}>
+          <Link href={`/posts/id/${id}`}>
             <a className="text-3xl md:text-4xl font-bold text-gray-800 hover:text-gray-600">
               {title || "No Title"}
             </a>

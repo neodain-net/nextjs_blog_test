@@ -41,6 +41,26 @@ body {
   background-size: cover;
 } */
 
+h1 {
+    display: block;
+    font-size: 2em;
+    margin-block-start: 0.67em;
+    margin-block-end: 0.67em;
+    margin-inline-start: 0px;
+    margin-inline-end: 0px;
+    font-weight: bold;
+}
+
+h2 {
+    display: block;
+    font-size: 1.5em;
+    margin-block-start: 0.83em;
+    margin-block-end: 0.83em;
+    margin-inline-start: 0px;
+    margin-inline-end: 0px;
+    font-weight: bold;
+}
+
 a {
   text-decoration: none;
   color: #ecb365;
@@ -50,6 +70,24 @@ ul {
   list-style: none;
   margin: 0;
   padding: 0;
+}
+
+ol {
+    display: block;
+    list-style-type: decimal;
+    margin-block-start: 1em;
+    margin-block-end: 1em;
+    margin-inline-start: 0px;
+    margin-inline-end: 0px;
+    padding-inline-start: 40px;
+}
+
+p {
+    display: block;
+    margin-block-start: 1em;
+    margin-block-end: 1em;
+    margin-inline-start: 0px;
+    margin-inline-end: 0px;
 }
 
 svg {
@@ -744,4 +782,20 @@ td {
 
 table tr:nth-child(2n) {
   background: #f6f8fa;
+}
+
+.input-text {
+  @apply mt-1 block w-60 px-3 py-2 bg-white border border-slate-300 rounded-full;
+  @apply focus:outline-none focus:border-sky-500 focus:ring-1 focus:ring-sky-50;
+}
+
+.loader {
+  @apply border-gray-200 rounded-full border-4 ease-linear h-10 w-10;
+  border-top-color:#363ce0;
+  animation:spinner 1.2s linear infinite;
+}
+
+@keyframes spinner {
+  0% {transform: rotate(0deg);}
+  100% {transform: rotate(360deg);}
 }

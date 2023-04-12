@@ -6,12 +6,12 @@ import { Swiper, SwiperSlide } from "swiper/react";
 import SwiperCore, { Autoplay } from "swiper";
 // Import Swiper styles
 import "swiper/css";
-import fetcher from "../lib/fetcher";
+import Fetcher from "../lib/fetcher";
 import Spinner from "./_child/spinner";
 import Error from "./_child/error";
 
 export default function section1() {
-  const { data, isLoading, isError } = fetcher("api/trending");
+  const { data, isLoading, isError } = Fetcher("api/trending");
 
   if (isLoading) return <Spinner></Spinner>;
   if (isError) return <Error></Error>;
@@ -53,28 +53,28 @@ function Slide({ data }) {
   return (
     <div className="grid md:grid-cols-2">
       <div className="image">
-        <Link href={`/posts/${id}`}>
+        <Link href={`/posts/id/${id}`}>
           <a>
-            <Image src={img || "/"} width={600} height={600} />
+            <Image src={img || "/"} width={400} height={400} />
           </a>
         </Link>
       </div>
       <div className="info flex justify-center flex-col">
         <div className="cat">
-          <Link href={`/posts/${id}`}>
+          <Link href={`/posts/id/${id}`}>
             <a className="text-orange-600 hover:text-orange-800">
               {category || "Unknown"}
             </a>
           </Link>
-          <Link href={`/posts/${id}`}>
+          <Link href={`/posts/id/${id}`}>
             <a className="text-gray-800 hover:text-gray-600">
               - {published || "Unknown"}
             </a>
           </Link>
         </div>
         <div className="title">
-          <Link href={`/posts/${id}`}>
-            <a className="text-3xl md:text-6xl font-bold text-gray-800 hover:text-gray-600">
+          <Link href={`/posts/id/${id}`}>
+            <a className="text-3xl md:text-3xl font-bold text-gray-800 hover:text-gray-600">
               {title || "Unknown"}
             </a>
           </Link>

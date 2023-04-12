@@ -2,12 +2,12 @@ import Author from "./_child/author";
 import Link from "next/link";
 import Image from "next/image";
 
-import fetcher from "../lib/fetcher";
+import Fetcher from "../lib/fetcher";
 import Spinner from "./_child/spinner";
 import Error from "./_child/error";
 
 export default function section4() {
-  const { data, isLoading, isError } = fetcher("api/popular");
+  const { data, isLoading, isError } = Fetcher("api/popular");
 
   if (isLoading) return <Spinner></Spinner>;
   if (isError) return <Error></Error>;
@@ -43,7 +43,7 @@ function Post({ data }) {
   return (
     <div className="flex gap-5">
       <div className="image flex flex-col justify-start">
-        <Link href={`/posts/${id}`}>
+        <Link href={`/posts/id/${id}`}>
           <a>
             <Image
               src={img || ""}
@@ -56,19 +56,19 @@ function Post({ data }) {
       </div>
       <div className="info flex justify-center flex-col">
         <div className="cat">
-          <Link href={`/posts/${id}`}>
+          <Link href={`/posts/id/${id}`}>
             <a className="text-orange-600 hover:text-orange-800">
               {category || "No Category"}
             </a>
           </Link>
-          <Link href={`/posts/${id}`}>
+          <Link href={`/posts/id/${id}`}>
             <a className="text-gray-800 hover:text-gray-600">
               - {published || ""}
             </a>
           </Link>
         </div>
         <div className="title">
-          <Link href={`/posts/${id}`}>
+          <Link href={`/posts/id/${id}`}>
             <a className="text-xl font-bold text-gray-800 hover:text-gray-600">
               {title || "No Title"}
             </a>
