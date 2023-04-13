@@ -26,7 +26,7 @@
     "**/*.ts",
     "**/*.tsx",
     "layout/format.js",
-    "src/lib/helper.js",
+    "src/lib/post.js",
     "src/lib/fetcher.js"
   ],
   "exclude": ["node_modules"]

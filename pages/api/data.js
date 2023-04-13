@@ -292,7 +292,7 @@ const jsonData = {
       title: "Your most unhappy customers are your greatest source of learning",
       subtitle:
         "Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts.",
-      category: "Business, Travel",
+      category: "Business",
       img: "/images/img1.jpg",
       description: `
             Even the all-powerful Pointing has no control about the blind texts it is an almost unorthographic
@@ -310,7 +310,7 @@ const jsonData = {
       title: "Your most unhappy customers are your greatest source of learning",
       subtitle:
         "Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts.",
-      category: "Business, Travel",
+      category: "Business",
       img: "/images/img2.jpg",
       description: `
             Even the all-powerful Pointing has no control about the blind texts it is an almost unorthographic
@@ -328,7 +328,7 @@ const jsonData = {
       title: "Your most unhappy customers are your greatest source of learning",
       subtitle:
         "Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts.",
-      category: "Business, Travel",
+      category: "Business",
       img: "/images/img3.jpg",
       description: `
             Even the all-powerful Pointing has no control about the blind texts it is an almost unorthographic
@@ -346,7 +346,7 @@ const jsonData = {
       title: "Your most unhappy customers are your greatest source of learning",
       subtitle:
         "Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts.",
-      category: "Business, Travel",
+      category: "Travel",
       img: "/images/img4.png",
       description: `
             Even the all-powerful Pointing has no control about the blind texts it is an almost unorthographic
@@ -364,7 +364,7 @@ const jsonData = {
       title: "Your most unhappy customers are your greatest source of learning",
       subtitle:
         "Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts.",
-      category: "Business, Travel",
+      category: "Travel",
       img: "/images/img5.png",
       description: `
             Even the all-powerful Pointing has no control about the blind texts it is an almost unorthographic

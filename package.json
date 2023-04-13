@@ -6,7 +6,7 @@
     "build": "next build",
     "start": "next start",
     "lint": "next lint",
-    "postbuild": "next-sitemap"
+    "postbuild": "next-sitemap --config next-sitemap.config.js"
   },
   "dependencies": {
     "glob": "^7.2.0",
@@ -38,13 +38,13 @@
   "main": "next-sitemap.js",
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/neodain-net/nextjs-blog.git"
+    "url": "git+https://github.com/neodain-net/nextjs_blog_test.git"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/neodain-net/nextjs-blog/issues"
+    "url": "https://github.com/neodain-net/nextjs_blog_test/issues"
   },
-  "homepage": "https://github.com/neodain-net/nextjs-blog#readme"
+  "homepage": "https://github.com/neodain-net/nextjs_blog_test/#readme"
 }

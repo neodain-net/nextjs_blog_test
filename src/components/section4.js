@@ -19,7 +19,7 @@ export default function section4() {
           <h1 className="font-bold text-4xl py-12">Business</h1>
           <div className="flex flex-col gap-6">
             {/* posts */}
-            {data[0] ? <Post data={data[0]}></Post> : <></>}
+            {data[0].category==="Business" ? <Post data={data[0]}></Post> : <></>}
             {data[1] ? <Post data={data[1]}></Post> : <></>}
             {data[2] ? <Post data={data[2]}></Post> : <></>}
           </div>
@@ -27,9 +27,9 @@ export default function section4() {
         <div className="item">
           <h1 className="font-bold text-4xl py-12">Travel</h1>
           <div className="flex flex-col gap-6">
-            {data[3] ? <Post data={data[3]}></Post> : <></>}
+            {data[3].category==="Travel" ? <Post data={data[3]}></Post> : <></>}
             {data[4] ? <Post data={data[4]}></Post> : <></>}
-            {data[1] ? <Post data={data[1]}></Post> : <></>}
+            {/* {data[1] ? <Post data={data[1]}></Post> : <></>} */}
           </div>
         </div>
       </div>
@@ -43,7 +43,7 @@ function Post({ data }) {
   return (
     <div className="flex gap-5">
       <div className="image flex flex-col justify-start">
-        <Link href={`/posts/id/${id}`}>
+        <Link href={`/posts/popular/${id}`}>
           <a>
             <Image
               src={img || ""}
@@ -57,19 +57,19 @@ function Post({ data }) {
       </div>
       <div className="info flex justify-center flex-col">
         <div className="cat">
-          <Link href={`/posts/id/${id}`}>
+          <Link href={`/posts/popular/${id}`}>
             <a className="text-orange-600 hover:text-orange-800">
               {category || "No Category"}
             </a>
           </Link>
-          <Link href={`/posts/id/${id}`}>
+          <Link href={`/posts/popular/${id}`}>
             <a className="text-gray-800 hover:text-gray-600">
               - {published || ""}
             </a>
           </Link>
         </div>
         <div className="title">
-          <Link href={`/posts/id/${id}`}>
+          <Link href={`/posts/popular/${id}`}>
             <a className="text-xl font-bold text-gray-800 hover:text-gray-600">
               {title || "No Title"}
             </a>

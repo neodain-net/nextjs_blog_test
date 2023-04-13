@@ -53,7 +53,7 @@ function Slide({ data }) {
   return (
     <div className="grid md:grid-cols-2">
       <div className="image">
-        <Link href={`/posts/id/${id}`}>
+        <Link href={`/posts/trending/${id}`}>
           <a>
             <Image src={img || "/"} width={400} height={400} alt="" />
           </a>
@@ -61,19 +61,19 @@ function Slide({ data }) {
       </div>
       <div className="info flex justify-center flex-col">
         <div className="cat">
-          <Link href={`/posts/id/${id}`}>
+          <Link href={`/posts/trending/${id}`}>
             <a className="text-orange-600 hover:text-orange-800">
               {category || "Unknown"}
             </a>
           </Link>
-          <Link href={`/posts/id/${id}`}>
+          <Link href={`/posts/trending/${id}`}>
             <a className="text-gray-800 hover:text-gray-600">
               - {published || "Unknown"}
             </a>
           </Link>
         </div>
         <div className="title">
-          <Link href={`/posts/id/${id}`}>
+          <Link href={`/posts/trending/${id}`}>
             <a className="text-3xl md:text-3xl font-bold text-gray-800 hover:text-gray-600">
               {title || "Unknown"}
             </a>

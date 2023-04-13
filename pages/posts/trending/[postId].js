@@ -2,7 +2,7 @@ import Format from "../../../layout/format";
 import Author from "../../../src/components/_child/author";
 import Image from "next/image";
 import Ralated from "../../../src/components/_child/ralated";
-import getPost from "../../../src/lib/helper";
+import getTrending from "../../../src/lib/trending";
 import fetcher from "../../../src/lib/fetcher";
 import Spinner from "../../../src/components/_child/spinner";
 import ErrorComponent from "../../../src/components/_child/error";
@@ -12,8 +12,9 @@ import { SWRConfig } from "swr";
 export default function Page({ fallback }) {
   const router = useRouter();
   const { postId } = router.query;
-  const { data, isLoading, isError } = fetcher(`api/posts/${postId}`);
-  //   const { data, isLoading, isError } = fetcher(`api/posts`);
+  const { data, isLoading, isError } = fetcher(`api/trending/${postId}`);
+
+  console.log(`fallback : ${fallback}`)
 
   if (isLoading) return <Spinner></Spinner>;
   if (isError) return <ErrorComponent></ErrorComponent>;
@@ -58,19 +59,19 @@ function Article({ title, img, subtitle, description, author }) {
 }
 
 export async function getStaticProps({ params }) {
-  const posts = await getPost(params.postId);
+  const posts = await getTrending(params.postId);
 
   return {
     props: {
       fallback: {
-        "/api/posts": posts,
+        "/api/trending": posts,
       },
     },
   };
 }
 
 export async function getStaticPaths() {
-  const posts = await getPost();
+  const posts = await getTrending();
   const paths = posts.map((value) => {
     return {
       params: {

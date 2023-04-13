@@ -41,7 +41,7 @@ function Post({ data }) {
   return (
     <div className="grid">
       <div className="images">
-        <Link href={`/posts/id/${id}`}>
+        <Link href={`/posts/popular/${id}`}>
           <a>
             <Image src={img || ""} width={600} height={400} alt=""/>
           </a>
@@ -49,20 +49,20 @@ function Post({ data }) {
       </div>
       <div className="info flex justify-center flex-col py-4">
         <div className="cat">
-          <Link href={`/posts/id/${id}`}>
+          <Link href={`/posts/popular/${id}`}>
             <a className="text-orange-600 hover:text-orange-800">
               {category || "No Category"}
             </a>
           </Link>
-          <Link href={`/posts/id/${id}`}>
+          <Link href={`/posts/popular/${id}`}>
             <a className="text-gray-800 hover:text-gray-600">
               - {published || ""}
             </a>
           </Link>
         </div>
         <div className="title">
-          <Link href={`/posts/id/${id}`}>
-            <a className="text-3xl md:text-4xl font-bold text-gray-800 hover:text-gray-600">
+          <Link href={`/posts/popular/${id}`}>
+            <a className="text-3xl md:text-3xl font-bold text-gray-800 hover:text-gray-600">
               {title || "No Title"}
             </a>
           </Link>
