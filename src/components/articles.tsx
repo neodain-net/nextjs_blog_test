@@ -1,5 +1,6 @@
 import Link from "next/link";
-import type { PostMeta } from "@/src/api";
+import Image from "next/image";
+import type { PostMeta } from "@/src/lib/api";
 import styles from "@/styles/Articles.module.css";
 
 export default function Articles({ posts }: { posts: PostMeta[] }) {
@@ -9,7 +10,14 @@ export default function Articles({ posts }: { posts: PostMeta[] }) {
         {posts.map((post) => (
           <li key={post.slug}>
             <div className={styles.card}>
-              <img src={post.cover_image} alt="" />
+              <Image
+                className="sm:max-h-52 w-full"
+                src={post.cover_image}
+                width={324}
+                height={208}
+                alt=""
+              />
+              {/* <img src={post.cover_image} alt="" /> */}
               <div className={styles.post_date}>Posted on {post.date}</div>
               <div className={styles.post_title}>
                 <Link href={`/posts/${post.slug}`}>{post.title}</Link>

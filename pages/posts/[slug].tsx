@@ -6,7 +6,7 @@ import { serialize } from "next-mdx-remote/serialize";
 import rehypeSlug from "rehype-slug";
 import rehypeAutolinkHeadings from "rehype-autolink-headings";
 import rehypeHighlight from "rehype-highlight";
-import { getPostFromSlug, getSlugs, PostMeta } from "@/src/api";
+import { getPostFromSlug, getSlugs, PostMeta } from "@/src/lib/api";
 import YouTube from "@/src/components/youTube";
 import "highlight.js/styles/atom-one-dark.css";
 

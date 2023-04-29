@@ -16,19 +16,13 @@ export default function Footer() {
         <div className="py-5">
           <div className="flex gap-6 justify-center">
             <Link href={"/"}>
-              <a>
-                <ImFacebook color="#888888" />
-              </a>
+              <ImFacebook color="#888888" />
             </Link>
             <Link href={"/"}>
-              <a>
-                <ImTwitter color="#888888" />
-              </a>
+              <ImTwitter color="#888888" />
             </Link>
             <Link href={"/"}>
-              <a>
-                <ImYoutube color="#888888" />
-              </a>
+              <ImYoutube color="#888888" />
             </Link>
           </div>
 

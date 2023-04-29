@@ -42,23 +42,23 @@ body {
 } */
 
 h1 {
-    display: block;
-    font-size: 2em;
-    margin-block-start: 0.67em;
-    margin-block-end: 0.67em;
-    margin-inline-start: 0px;
-    margin-inline-end: 0px;
-    font-weight: bold;
+  display: block;
+  font-size: 2em;
+  margin-block-start: 0.67em;
+  margin-block-end: 0.67em;
+  margin-inline-start: 0px;
+  margin-inline-end: 0px;
+  font-weight: bold;
 }
 
 h2 {
-    display: block;
-    font-size: 1.5em;
-    margin-block-start: 0.83em;
-    margin-block-end: 0.83em;
-    margin-inline-start: 0px;
-    margin-inline-end: 0px;
-    font-weight: bold;
+  display: block;
+  font-size: 1.5em;
+  margin-block-start: 0.83em;
+  margin-block-end: 0.83em;
+  margin-inline-start: 0px;
+  margin-inline-end: 0px;
+  font-weight: bold;
 }
 
 a {
@@ -73,21 +73,21 @@ ul {
 }
 
 ol {
-    display: block;
-    list-style-type: decimal;
-    margin-block-start: 1em;
-    margin-block-end: 1em;
-    margin-inline-start: 0px;
-    margin-inline-end: 0px;
-    padding-inline-start: 40px;
+  display: block;
+  list-style-type: decimal;
+  margin-block-start: 1em;
+  margin-block-end: 1em;
+  margin-inline-start: 0px;
+  margin-inline-end: 0px;
+  padding-inline-start: 40px;
 }
 
 p {
-    display: block;
-    margin-block-start: 1em;
-    margin-block-end: 1em;
-    margin-inline-start: 0px;
-    margin-inline-end: 0px;
+  display: block;
+  margin-block-start: 1em;
+  margin-block-end: 1em;
+  margin-inline-start: 0px;
+  margin-inline-end: 0px;
 }
 
 svg {
@@ -100,10 +100,10 @@ svg {
   cursor: pointer;
 }
 
-img {
+/* img {
   width: 100%;
   height: 200px;
-}
+} */
 
 body.hidden-scrolling {
   overflow-y: hidden;
@@ -753,7 +753,7 @@ body.hidden-scrolling {
   }
 }
 
-@media (max-width: 950px) {
+/* @media (max-width: 950px) {
   img {
     width: 100%;
     height: 200px;
@@ -766,7 +766,7 @@ body.hidden-scrolling {
     height: auto;
     max-height: 300px;
   }
-}
+} */
 
 tr {
   border-top: 1px solid #c6cbd1;
@@ -791,11 +791,15 @@ table tr:nth-child(2n) {
 
 .loader {
   @apply border-gray-200 rounded-full border-4 ease-linear h-10 w-10;
-  border-top-color:#363ce0;
-  animation:spinner 1.2s linear infinite;
+  border-top-color: #363ce0;
+  animation: spinner 1.2s linear infinite;
 }
 
 @keyframes spinner {
-  0% {transform: rotate(0deg);}
-  100% {transform: rotate(360deg);}
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
 }

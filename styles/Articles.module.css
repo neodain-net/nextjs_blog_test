@@ -35,7 +35,7 @@
 
 .card {
   position: relative;
-  height: 500px;
+  height: 530px;
   padding: 15px;
   box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
   z-index: 5;
@@ -114,7 +114,7 @@
   }
 
   .card {
-    height: 500px;
+    height: 530px;
     padding: 15px;
     box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
   }
