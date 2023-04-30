@@ -30,7 +30,8 @@ export default function Home({
   );
 }
 
-export async function getStaticProps() {
+// export async function getStaticProps() {
+export async function getServerSideProps() {
   const blogs = await client.fetch(`*[_type == "post"]`);
 
   const posts = getAllPosts()
