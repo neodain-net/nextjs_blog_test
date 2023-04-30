@@ -22,9 +22,11 @@ export default function Home({
     <Format>
       <Section5 posts={blogs} />
       <Section1 posts={posts} />
+      <Section3 posts={posts} />
+      {/* <Section1 posts={posts} />
       <Section2 posts={posts} />
       <Section3 posts={posts} />
-      <Section4 posts={posts} />
+      <Section4 posts={posts} /> */}
       <Articles posts={posts} />
     </Format>
   );
