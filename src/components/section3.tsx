@@ -10,8 +10,8 @@ import type { PostMeta } from "@/src/lib/api";
 import styles from "@/styles/Articles.module.css";
 
 const author = {
-  name: "Jane",
-  img: "/images/author (1).png",
+  name: "Karen",
+  img: "/images/author (9).png",
   designation: "Data Analyst",
 };
 
