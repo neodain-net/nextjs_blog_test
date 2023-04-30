@@ -10,7 +10,7 @@ import styles from "@/styles/Articles.module.css";
 
 const author = {
   name: "Erica",
-  img: "/images/author (7).png",
+  img: "/images/author7.png",
   designation: "Data Analyst",
 };
 

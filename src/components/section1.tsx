@@ -15,7 +15,7 @@ import styles from "@/styles/Articles.module.css";
 
 const author = {
   name: "neodain",
-  img: "/images/author (12).png",
+  img: "/images/author12.png",
   designation: "Data Analyst, CEO and Publisher",
 };
 

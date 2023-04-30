@@ -20,11 +20,11 @@ export default function Home({
 }) {
   return (
     <Format>
-      {/* <Section1 posts={posts} />
+      <Section5 posts={blogs} />
+      <Section1 posts={posts} />
       <Section2 posts={posts} />
       <Section3 posts={posts} />
-      <Section4 posts={posts} /> */}
-      <Section5 posts={blogs} />
+      <Section4 posts={posts} />
       <Articles posts={posts} />
     </Format>
   );

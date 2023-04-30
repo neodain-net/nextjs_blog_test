@@ -11,7 +11,7 @@ import styles from "@/styles/Articles.module.css";
 
 const author = {
   name: "Karen",
-  img: "/images/author (9).png",
+  img: "/images/author9.png",
   designation: "Data Analyst",
 };
 
