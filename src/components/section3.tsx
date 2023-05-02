@@ -45,7 +45,7 @@ function Post({ post }: { post: PostMeta }) {
       <div className="images">
         <Link href={`/posts/${post.slug}`}>
           <Image
-            className="rounded max-h-72"
+            className="rounded max-h-72 sm:h-44 md:h-60 lg:h-80"
             src={post.cover_image || ""}
             width={600}
             height={400}

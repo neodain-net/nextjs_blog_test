@@ -141,7 +141,7 @@
   }
 }
 
-@media (max-width: 610px) {
+@media (max-width: 640px) {
   .posts {
     grid-template-columns: 1fr;
     /* grid-template-columns: repeat(2, 1fr); */
