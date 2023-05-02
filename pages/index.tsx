@@ -35,7 +35,7 @@ export async function getServerSideProps() {
   const blogs = await client.fetch(`*[_type == "post"]`);
 
   const posts = getAllPosts()
-    .slice(0, 9)
+    .slice(0)
     .map((post) => post.meta);
 
   return { props: { blogs, posts } };
