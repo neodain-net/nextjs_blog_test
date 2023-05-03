@@ -1,4 +1,4 @@
-import { BPost } from "../../sanity/types";
+import { BPost, client } from "../../sanity/types";
 
 export default function section5({ posts }: { posts: BPost[] }) {
   return (

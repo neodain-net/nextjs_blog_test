@@ -15,8 +15,8 @@ export default function Home({
   blogs,
   posts,
 }: {
-  posts: PostMeta[];
   blogs: BPost[];
+  posts: PostMeta[];
 }) {
   return (
     <Format>
@@ -30,7 +30,6 @@ export default function Home({
   );
 }
 
-// export async function getStaticProps() {
 export async function getServerSideProps() {
   const blogs = await client.fetch(`*[_type == "post"]`);
 
