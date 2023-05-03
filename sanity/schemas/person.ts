@@ -7,7 +7,7 @@ export default {
       name: "name",
       title: "Name",
       type: "string",
-      description: 'Please use "Firstname Lastname" format',
+      description: 'Please use "Firstname Lastname" English format',
     },
     {
       name: "slug",
@@ -32,7 +32,7 @@ export default {
   // name 대신 id를 사용하여 preview 내용을 변경 할 수 있다
   preview: {
     select: {
-      title: "id",
+      title: "name",
       media: "image",
     },
   },

@@ -1,8 +1,6 @@
-import review from "./review";
-
 export default {
-  name: "life",
-  title: "Life",
+  name: "post",
+  title: "Post",
   type: "document",
   fields: [
     {
@@ -14,25 +12,6 @@ export default {
       name: "englishTitle",
       title: "English Title",
       type: "string",
-    },
-    {
-      name: "location",
-      title: "Location",
-      type: "geopoint",
-    },
-    {
-      name: "enjoyType",
-      title: "Enjoy Type",
-      type: "string",
-      options: {
-        list: [
-          { title: "Food", value: "food" },
-          { title: "Travel", value: "travel" },
-          { title: "Mountain", value: "mountain" },
-          { title: "Health", value: "health" },
-        ],
-        layout: "radio",
-      },
     },
     {
       name: "mainImage",
@@ -47,27 +26,6 @@ export default {
       title: "Images",
       type: "array",
       of: [{ type: "excitingImage" }],
-    },
-    {
-      name: "price",
-      title: "Price",
-      type: "number",
-    },
-    {
-      name: "movement",
-      title: "Movement",
-      type: "string",
-      options: {
-        list: [
-          { title: "walk", value: "walk" },
-          { title: "car", value: "car" },
-          { title: "bus", value: "bus" },
-          { title: "train", value: "train" },
-          { title: "air", value: "air" },
-          { title: "cruise", value: "cruise" },
-        ],
-        layout: "radio",
-      },
     },
     {
       name: "slug",
@@ -90,11 +48,6 @@ export default {
       options: {
         maxLength: 30,
       },
-    },
-    {
-      name: "host",
-      title: "Host",
-      type: "host",
     },
     {
       name: "url",

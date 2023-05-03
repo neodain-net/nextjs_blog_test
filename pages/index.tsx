@@ -9,33 +9,36 @@ import Section4 from "../src/components/section4";
 import Section5 from "../src/components/section5";
 
 import { getAllPosts, PostMeta } from "@/src/lib/api";
-import { BPost, client } from "../sanity/types";
+import { BPost, LPost, client } from "../sanity/types";
 
 export default function Home({
-  blogs,
   posts,
+  lifes,
+  langs,
 }: {
-  blogs: BPost[];
-  posts: PostMeta[];
+  posts: BPost[];
+  lifes: LPost[];
+  langs: PostMeta[];
 }) {
   return (
     <Format>
-      <Section5 posts={blogs} />
-      <Section1 posts={posts} />
-      <Section2 posts={posts} />
-      <Section3 posts={posts} />
-      <Section4 posts={posts} />
-      <Articles posts={posts} />
+      <Section5 posts={posts} lifes={lifes} />
+      <Section1 posts={langs} />
+      <Section2 posts={langs} />
+      <Section3 posts={langs} />
+      <Section4 posts={langs} />
+      <Articles posts={langs} />
     </Format>
   );
 }
 
 export async function getServerSideProps() {
-  const blogs = await client.fetch(`*[_type == "post"]`);
+  const posts = await client.fetch(`*[_type == "post"]`);
+  const lifes = await client.fetch(`*[_type == "life"]`);
 
-  const posts = getAllPosts()
+  const langs = getAllPosts()
     .slice(0)
-    .map((post) => post.meta);
+    .map((lang) => lang.meta);
 
-  return { props: { blogs, posts } };
+  return { props: { posts, lifes, langs } };
 }

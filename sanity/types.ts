@@ -11,6 +11,16 @@ export interface BPost {
   content: PortableTextBlock[];
 }
 
+export interface LPost {
+  _id: string;
+  _createdAt: Date;
+  title: string;
+  slug: string;
+  mainImage: string;
+  url: string;
+  content: PortableTextBlock[];
+}
+
 export const client = createClient({
   projectId: "poxxqfti",
   dataset: "production",

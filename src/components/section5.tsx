@@ -1,10 +1,17 @@
-import { BPost, client } from "../../sanity/types";
+import { BPost, LPost } from "../../sanity/types";
 
-export default function section5({ posts }: { posts: BPost[] }) {
+export default function section5({
+  posts,
+  lifes,
+}: {
+  posts: BPost[];
+  lifes: LPost[];
+}) {
   return (
     <section className="mx-auto md:px-20 py-10">
       <h1 className="font-bold text-4xl pb-12 text-center">Sanity Post</h1>
-      {posts && posts.map((post) => <div key={post._id}> {post.name}</div>)}
+      {posts && posts.map((post) => <div key={post._id}> {post.title}</div>)}
+      {lifes && lifes.map((life) => <div key={life._id}> {life.title}</div>)}
     </section>
   );
 }
