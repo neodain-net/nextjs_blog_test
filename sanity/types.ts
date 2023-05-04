@@ -4,20 +4,24 @@ import { PortableTextBlock } from "sanity";
 export interface BPost {
   _id: string;
   _createdAt: Date;
+  publishedAt: Date;
   title: string;
   slug: string;
   image: string;
   url: string;
+  description: string;
   content: PortableTextBlock[];
 }
 
 export interface LPost {
   _id: string;
   _createdAt: Date;
+  publishedAt: Date;
   title: string;
   slug: string;
-  mainImage: string;
+  image: string;
   url: string;
+  description: string;
   content: PortableTextBlock[];
 }
 

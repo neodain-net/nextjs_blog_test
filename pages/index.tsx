@@ -10,6 +10,7 @@ import Section5 from "../src/components/section5";
 
 import { getAllPosts, PostMeta } from "@/src/lib/api";
 import { BPost, LPost, client } from "../sanity/types";
+import { groq } from "next-sanity";
 
 export default function Home({
   posts,
@@ -33,8 +34,33 @@ export default function Home({
 }
 
 export async function getServerSideProps() {
-  const posts = await client.fetch(`*[_type == "post"]`);
-  const lifes = await client.fetch(`*[_type == "life"]`);
+  const posts = await client.fetch(
+    groq`*[_type == "post"]{
+      _id,
+      _createdAt,
+      publishedAt,
+      title,
+      description,
+      url,
+      "slug": slug.current,
+      "image": mainImage.asset->url,
+      "content": body,
+  }`
+  );
+
+  const lifes = await client.fetch(
+    groq`*[_type == "life"]{
+      _id,
+      _createdAt,
+      publishedAt,
+      title,
+      description,
+      url,
+      "slug": slug.current,
+      "image": mainImage.asset->url,
+      "content": body,
+  }`
+  );
 
   const langs = getAllPosts()
     .slice(0)
