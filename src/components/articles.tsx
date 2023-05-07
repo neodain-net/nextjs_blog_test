@@ -21,7 +21,7 @@ export default function Articles({ posts }: { posts: PostMeta[] }) {
                 {/* <img src={post.cover_image} alt="" /> */}
                 <div className={styles.post_date}>Posted on {post.date}</div>
                 <div className={styles.post_title}>
-                  <Link href={`/posts/${post.slug}`}>{post.title}</Link>
+                  <Link href={`/langs/${post.slug}`}>{post.title}</Link>
                 </div>
                 <p>{post.excerpt}</p>
                 <p className={styles.tags}>
@@ -32,7 +32,7 @@ export default function Articles({ posts }: { posts: PostMeta[] }) {
                   ))}
                 </p>
                 <button className={styles.btn}>
-                  <Link href={`/posts/${post.slug}`}>Read More</Link>
+                  <Link href={`/langs/${post.slug}`}>Read More</Link>
                 </button>
               </div>
             </li>

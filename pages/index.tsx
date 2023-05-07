@@ -9,8 +9,7 @@ import Section4 from "../src/components/section4";
 import Section5 from "../src/components/section5";
 
 import { getAllPosts, PostMeta } from "@/src/lib/api";
-import { BPost, LPost, client } from "../sanity/types";
-import { groq } from "next-sanity";
+import { BPost, getLifes, getPosts, LPost } from "../sanity/types";
 
 export default function Home({
   posts,
@@ -34,33 +33,8 @@ export default function Home({
 }
 
 export async function getServerSideProps() {
-  const posts = await client.fetch(
-    groq`*[_type == "post"]{
-      _id,
-      _createdAt,
-      publishedAt,
-      title,
-      description,
-      url,
-      "slug": slug.current,
-      "image": mainImage.asset->url,
-      "content": body,
-  }`
-  );
-
-  const lifes = await client.fetch(
-    groq`*[_type == "life"]{
-      _id,
-      _createdAt,
-      publishedAt,
-      title,
-      description,
-      url,
-      "slug": slug.current,
-      "image": mainImage.asset->url,
-      "content": body,
-  }`
-  );
+  const posts = await getPosts();
+  const lifes = await getLifes();
 
   const langs = getAllPosts()
     .slice(0)
@@ -68,3 +42,14 @@ export async function getServerSideProps() {
 
   return { props: { posts, lifes, langs } };
 }
+
+// export const getStaticProps: GetStaticProps = async () => {
+//   const posts = await getPosts();
+//   const lifes = await getLifes();
+
+//   const langs = getAllPosts()
+//     .slice(0)
+//     .map((lang) => lang.meta);
+
+//   return { props: { posts, lifes, langs } };
+// }

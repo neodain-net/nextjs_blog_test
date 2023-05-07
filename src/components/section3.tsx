@@ -43,7 +43,7 @@ function Post({ post }: { post: PostMeta }) {
   return (
     <div className="grid">
       <div className="images">
-        <Link href={`/posts/${post.slug}`}>
+        <Link href={`/langs/${post.slug}`}>
           <Image
             className="rounded max-h-72 sm:h-44 md:h-60 lg:h-80"
             src={post.cover_image || ""}
@@ -68,7 +68,7 @@ function Post({ post }: { post: PostMeta }) {
           </p>
           <Link
             className="text-gray-800 hover:text-gray-600"
-            href={`/posts/${post.slug}`}
+            href={`/langs/${post.slug}`}
           >
             - {post.date || "Unknown"}
           </Link>
@@ -76,7 +76,7 @@ function Post({ post }: { post: PostMeta }) {
         <div className="title pt-2 h-20">
           <Link
             className="text-xl font-bold text-gray-800 hover:text-gray-600"
-            href={`/posts/${post.slug}`}
+            href={`/langs/${post.slug}`}
           >
             {post.title || "Unknown"}
           </Link>

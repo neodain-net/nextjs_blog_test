@@ -33,7 +33,7 @@ function Post({ post }: { post: PostMeta }) {
   return (
     <div className="item">
       <div className="images">
-        <Link href={`/posts/${post.slug}`}>
+        <Link href={`/langs/${post.slug}`}>
           <Image
             src={post.cover_image || "/"}
             className="rounded sm:h-44"
@@ -60,7 +60,7 @@ function Post({ post }: { post: PostMeta }) {
           <Link
             // className="text-xl font-bold text-gray-800 hover:text-gray-600"
             className="text-gray-800 hover:text-gray-600"
-            href={`/posts/${post.slug}`}
+            href={`/langs/${post.slug}`}
           >
             - {post.date || "Unknown"}
           </Link>
@@ -68,7 +68,7 @@ function Post({ post }: { post: PostMeta }) {
         <div className="title h-20 pt-2">
           <Link
             className="text-xl font-bold text-gray-800 hover:text-gray-600"
-            href={`/posts/${post.slug}`}
+            href={`/langs/${post.slug}`}
           >
             {post.title || "Title"}
           </Link>

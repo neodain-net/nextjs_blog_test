@@ -54,7 +54,7 @@ function Slide({ post }: { post: PostMeta }) {
   return (
     <div className="grid md:grid-cols-2">
       <div className="images">
-        <Link href={`/posts/${post.slug}`}>
+        <Link href={`/langs/${post.slug}`}>
           <Image
             className="sm:h-96"
             src={post.cover_image || "/"}
@@ -79,7 +79,7 @@ function Slide({ post }: { post: PostMeta }) {
           </p>
           <Link
             className="text-gray-800 hover:text-gray-600"
-            href={`/posts/${post.slug}`}
+            href={`/langs/${post.slug}`}
           >
             - {post.date || "Unknown"}
           </Link>
@@ -87,7 +87,7 @@ function Slide({ post }: { post: PostMeta }) {
         <div className="title">
           <Link
             className="text-2xl md:text-2xl font-bold text-gray-800 hover:text-gray-600"
-            href={`/posts/${post.slug}`}
+            href={`/langs/${post.slug}`}
           >
             {post.title || "Unknown"}
           </Link>

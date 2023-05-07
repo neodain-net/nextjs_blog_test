@@ -60,7 +60,7 @@ function Post({ post }: { post: PostMeta }) {
   return (
     <div className="flex gap-5">
       <div className="images flex flex-col justify-center item-centered">
-        <Link href={`/posts/${post.slug}`}>
+        <Link href={`/langs/${post.slug}`}>
           <Image
             src={post.cover_image || "/"}
             className="rounded w-44 h-44 justify-center item-centered"
@@ -85,7 +85,7 @@ function Post({ post }: { post: PostMeta }) {
           </p>
           <Link
             className="text-gray-600 hover:text-orange-800"
-            href={`/posts/${post.slug}`}
+            href={`/langs/${post.slug}`}
           >
             - {post.date || "Unknown"}
           </Link>
@@ -93,7 +93,7 @@ function Post({ post }: { post: PostMeta }) {
         <div className="title w-80 h-16">
           <Link
             className="text-xl font-bold text-gray-800 hover:text-orange-600"
-            href={`/posts/${post.slug}`}
+            href={`/langs/${post.slug}`}
           >
             {post.title || "Title"}
           </Link>

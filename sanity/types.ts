@@ -1,7 +1,7 @@
-import { createClient } from "next-sanity";
+import { createClient, groq } from "next-sanity";
 import { PortableTextBlock } from "sanity";
 
-export interface BPost {
+export type BPost = {
   _id: string;
   _createdAt: Date;
   publishedAt: Date;
@@ -11,9 +11,9 @@ export interface BPost {
   url: string;
   description: string;
   content: PortableTextBlock[];
-}
+};
 
-export interface LPost {
+export type LPost = {
   _id: string;
   _createdAt: Date;
   publishedAt: Date;
@@ -23,32 +23,83 @@ export interface LPost {
   url: string;
   description: string;
   content: PortableTextBlock[];
-}
+};
 
-export const client = createClient({
+// export const client = createClient({
+export const sanityConfig = {
   projectId: "poxxqfti",
   dataset: "production",
   apiVersion: "2023-04-24",
   token: process.env.NEXT_SANITY_TOKENS,
   useCdn: true,
-});
+};
 
-// export async function getPosts(): Promise<BPost[]> {
-//   const client = createClient({
-//     projectId: "poxxqfti",
-//     dataset: "production",
-//     apiVersion: "2023-04-24",
-//   });
+export async function getPosts(): Promise<BPost[]> {
+  const posts = await createClient(sanityConfig).fetch(
+    groq`*[_type == "post"]{
+      _id,
+      _createdAt,
+      publishedAt,
+      title,
+      description,
+      url,
+      "slug": slug.current,
+      "image": mainImage.asset->url,
+      "content": body,
+    }`
+  );
+  return posts;
+}
 
-//   return client.fetch(
-//     groq`*[_type == "post"] {
-//         _id,
-//         _createdAt,
-//         name,
-//         "slug": slug.current,
-//         "image": image.asset->url,
-//         url,
-//         content,
-//     }`
-//   );
-// }
+export async function getPost(slug: string): Promise<BPost> {
+  const post = await createClient(sanityConfig).fetch(
+    groq`*[_type == "post" && slug.current == $slug][0]{
+      _id,
+      _createdAt,
+      publishedAt,
+      title,
+      description,
+      url,
+      "slug": slug.current,
+      "image": mainImage.asset->url,
+      "content": body,
+    }`,
+    { slug }
+  );
+  return post;
+}
+
+export async function getLifes(): Promise<LPost[]> {
+  const lifes = await createClient(sanityConfig).fetch(
+    groq`*[_type == "life"]{
+      _id,
+      _createdAt,
+      publishedAt,
+      title,
+      description,
+      url,
+      "slug": slug.current,
+      "image": mainImage.asset->url,
+      "content": body,
+    }`
+  );
+  return lifes;
+}
+
+export async function getLife(slug: string): Promise<LPost> {
+  const life = await createClient(sanityConfig).fetch(
+    groq`*[_type == "life" && slug.current == $slug][0]{
+      _id,
+      _createdAt,
+      publishedAt,
+      title,
+      description,
+      url,
+      "slug": slug.current,
+      "image": mainImage.asset->url,
+      "content": body,
+    }`,
+    { slug }
+  );
+  return life;
+}
