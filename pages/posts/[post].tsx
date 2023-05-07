@@ -87,10 +87,9 @@ type Props = {
 
 export async function getServerSideProps({ params }: Props): Promise<BPost> {
   console.log(params);
-  const slug = params.post;
+  const slug = params.slug;
   console.log(slug);
-  const post = await getPost(slug);
-  return { props: { post } };
+  return await getPost(slug);
 }
 
 // export default function post({ posts }: { posts: BPost[] }) {

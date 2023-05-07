@@ -99,8 +99,7 @@ type props = {
 
 export async function getServerSideProps({ params }: Props): Promise<LPost> {
   console.log(params);
-  const slug = params.life;
+  const slug = params.slug;
   console.log(slug);
-  const life = await getLife(slug);
-  return { props: { life } };
+  return await getLife(slug);
 }
