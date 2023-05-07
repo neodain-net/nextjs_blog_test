@@ -35,8 +35,7 @@ import { PortableTextBlock } from "sanity";
 
 // NEXT_SANITY_TOKENS=skRNeoOet8iIvOSTbnmIN2mhKM3CfBrkpwdJpVTDqx6NXvYLZjWmhNqDFOF4ZAzGgVIEt3YVuCkBOgjC58xjO7JmjOjoY0KNAYT47ljtMFhWbdcPsWwat9YV0J3aAamCYlGXbRmR05Ffek8K6G2tHry2yLa8aXiqL4rprVhwH748HGHXqozm
 
-export default function life({ life }: { life: LPost }) {
-  console.log({ life });
+export default function Life({ life }: { life: LPost }) {
   return (
     <section className="container py-40 mt-20 mx-auto px-4 sm:px-5 md:px-20">
       <div className="text-7xl text-center pb-12">
@@ -90,16 +89,11 @@ export default function life({ life }: { life: LPost }) {
 }
 
 type Props = {
-  params: { slug: string };
+  params: { life: string };
 };
 
-type props = {
-  props: { life: LPost };
-};
-
-export async function getServerSideProps({ params }: Props): Promise<LPost> {
-  console.log(params);
-  const slug = params.slug;
-  console.log(slug);
-  return await getLife(slug);
+export async function getServerSideProps({ params }: Props) {
+  const slug = params.life;
+  const life = await getLife(slug);
+  return { props: { life } };
 }

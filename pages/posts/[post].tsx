@@ -36,7 +36,6 @@ import { PortableTextBlock } from "sanity";
 // NEXT_SANITY_TOKENS=skRNeoOet8iIvOSTbnmIN2mhKM3CfBrkpwdJpVTDqx6NXvYLZjWmhNqDFOF4ZAzGgVIEt3YVuCkBOgjC58xjO7JmjOjoY0KNAYT47ljtMFhWbdcPsWwat9YV0J3aAamCYlGXbRmR05Ffek8K6G2tHry2yLa8aXiqL4rprVhwH748HGHXqozm
 
 export default function Post({ post }: { post: BPost }) {
-  console.log({ post });
   return (
     <section className="container py-40 mt-20 mx-auto px-4 sm:px-5 md:px-20">
       <div className="text-7xl text-center pb-12">
@@ -82,14 +81,13 @@ export default function Post({ post }: { post: BPost }) {
 }
 
 type Props = {
-  params: { slug: string };
+  params: { post: string };
 };
 
-export async function getServerSideProps({ params }: Props): Promise<BPost> {
-  console.log(params);
-  const slug = params.slug;
-  console.log(slug);
-  return await getPost(slug);
+export async function getServerSideProps({ params }: Props) {
+  const slug = params.post;
+  const post = await getPost(slug);
+  return { props: { post } };
 }
 
 // export default function post({ posts }: { posts: BPost[] }) {

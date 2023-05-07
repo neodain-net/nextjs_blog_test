@@ -52,7 +52,7 @@ export async function getPosts(): Promise<BPost[]> {
 }
 
 export async function getPost(slug: string): Promise<BPost> {
-  const post = await createClient(sanityConfig).fetch(
+  return await createClient(sanityConfig).fetch(
     groq`*[_type == "post" && slug.current == $slug][0]{
       _id,
       _createdAt,
@@ -66,7 +66,6 @@ export async function getPost(slug: string): Promise<BPost> {
     }`,
     { slug }
   );
-  return post;
 }
 
 export async function getLifes(): Promise<LPost[]> {
@@ -87,7 +86,7 @@ export async function getLifes(): Promise<LPost[]> {
 }
 
 export async function getLife(slug: string): Promise<LPost> {
-  const life = await createClient(sanityConfig).fetch(
+  return await createClient(sanityConfig).fetch(
     groq`*[_type == "life" && slug.current == $slug][0]{
       _id,
       _createdAt,
@@ -101,5 +100,4 @@ export async function getLife(slug: string): Promise<LPost> {
     }`,
     { slug }
   );
-  return life;
 }
