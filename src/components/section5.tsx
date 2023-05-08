@@ -63,96 +63,102 @@ export default function section5({
           </span>
         </div>
       </div>
-      <div className="h-9 flex justify-center items-center">
-        <div className="flex svg:w-6 svg:h-6 svg:p-1 border-2 border-orange-200 rounded-lg hover:border-blue-500 sm:hover:scale-105 sm:transition">
-          <ReactIcon />
+      <div className="mt-10 h-9 justify-center items-center grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 xl:grid-cols-5 gap-2">
+        <div className="flex items-center">
+          <div className="svg:w-6 svg:h-6 svg:p-1 border-2 border-orange-200 rounded-lg hover:border-blue-500 sm:hover:scale-105 sm:transition">
+            <ReactIcon />
+          </div>
+          <div className="w-1 h-6"></div>
+          <div className="svg:w-6 svg:h-6 svg:p-1 border-2 border-orange-200 rounded-lg hover:border-blue-500 sm:hover:scale-105 sm:transition">
+            <ExpressIcon />
+          </div>
+          <div className="w-1 h-6"></div>
+          <div className="svg:w-6 svg:h-6 svg:p-1 border-2 border-orange-200 rounded-lg hover:border-blue-500 sm:hover:scale-105 sm:transition">
+            <NodejsIcon />
+          </div>
+          <div className="w-1 h-6"></div>
+          <div className="svg:w-6 svg:h-6 svg:p-1 border-2 border-orange-200 rounded-lg hover:border-blue-500 sm:hover:scale-105 sm:transition">
+            <JavascriptIcon />
+          </div>
+          <div className="w-1 h-6"></div>
+          <div className="svg:w-6 svg:h-6 svg:p-1 border-2 border-orange-200 rounded-lg hover:border-blue-500 sm:hover:scale-105 sm:transition">
+            <TypescriptIcon />
+          </div>
         </div>
-        <div className="flex w-1 h-6"></div>
-        <div className="flex svg:w-6 svg:h-6 svg:p-1 border-2 border-orange-200 rounded-lg hover:border-blue-500 sm:hover:scale-105 sm:transition">
-          <ExpressIcon />
+        <div className="flex items-center">
+          <div className="svg:w-6 svg:h-6 svg:p-1 border-2 border-orange-200 rounded-lg hover:border-blue-500 sm:hover:scale-105 sm:transition">
+            <NextjsIcon />
+          </div>
+          <div className="w-1 h-6"></div>
+          <div className="svg:w-6 svg:h-6 svg:p-1 border-2 border-orange-200 rounded-lg hover:border-blue-500 sm:hover:scale-105 sm:transition">
+            <PythonIcon />
+          </div>
+          <div className="w-1 h-6"></div>
+          <div className="svg:w-6 svg:h-6 svg:p-1 border-2 border-orange-200 rounded-lg hover:border-blue-500 sm:hover:scale-105 sm:transition">
+            <MysqlIcon />
+          </div>
+          <div className="w-1 h-6"></div>
+          <div className="svg:w-6 svg:h-6 svg:p-1 border-2 border-orange-200 rounded-lg hover:border-blue-500 sm:hover:scale-105 sm:transition">
+            <SanityIcon />
+          </div>
+          <div className="w-1 h-6"></div>
+          <div className="svg:w-6 svg:h-6 svg:p-1 border-2 border-orange-200 rounded-lg hover:border-blue-500 sm:hover:scale-105 sm:transition">
+            <OpenaiIcon />
+          </div>
         </div>
-        <div className="flex w-1 h-6"></div>
-        <div className="flex svg:w-6 svg:h-6 svg:p-1 border-2 border-orange-200 rounded-lg hover:border-blue-500 sm:hover:scale-105 sm:transition">
-          <NodejsIcon />
+        <div className="flex items-center">
+          <div className="svg:w-6 svg:h-6 svg:p-1 border-2 border-orange-200 rounded-lg hover:border-blue-500 sm:hover:scale-105 sm:transition">
+            <FoodIcon />
+          </div>
+          <div className="w-1 h-6"></div>
+          <div className="flex svg:w-6 svg:h-6 svg:p-1 border-2 border-orange-200 rounded-lg hover:border-blue-500 sm:hover:scale-105 sm:transition">
+            <TravelIcon />
+          </div>
+          <div className="w-1 h-6"></div>
+          <div className="svg:w-6 svg:h-6 svg:p-1 border-2 border-orange-200 rounded-lg hover:border-blue-500 sm:hover:scale-105 sm:transition">
+            <MusicIcon />
+          </div>
+          <div className="w-1 h-6"></div>
+          <div className="svg:w-6 svg:h-6 svg:p-1 border-2 border-orange-200 rounded-lg hover:border-blue-500 sm:hover:scale-105 sm:transition">
+            <YoutubeBlackIcon />
+          </div>
+          <div className="w-1 h-6"></div>
+          <div className="svg:w-6 svg:h-6 svg:p-1 border-2 border-orange-200 rounded-lg hover:border-blue-500 sm:hover:scale-105 sm:transition">
+            <YoutubeRedIcon />
+          </div>
         </div>
-        <div className="flex w-1 h-6"></div>
-        <div className="flex svg:w-6 svg:h-6 svg:p-1 border-2 border-orange-200 rounded-lg hover:border-blue-500 sm:hover:scale-105 sm:transition">
-          <JavascriptIcon />
+        <div className="flex items-center">
+          <div className="svg:w-6 svg:h-6 svg:p-1 border-2 border-orange-200 rounded-lg hover:border-blue-500 sm:hover:scale-105 sm:transition">
+            <CloudUploadIcon />
+          </div>
+          <div className="w-1 h-6"></div>
+          <div className="svg:w-6 svg:h-6 svg:p-1 border-2 border-orange-200 rounded-lg hover:border-blue-500 sm:hover:scale-105 sm:transition">
+            <CloudDownloadIcon />
+          </div>
+          <div className="w-1 h-6"></div>
+          <div className="svg:w-6 svg:h-6 svg:p-1 border-2 border-orange-200 rounded-lg hover:border-blue-500 sm:hover:scale-105 sm:transition">
+            <DockerIcon />
+          </div>
+          <div className="w-1 h-6"></div>
+          <div className="svg:w-6 svg:h-6 svg:p-1 border-2 border-orange-200 rounded-lg hover:border-blue-500 sm:hover:scale-105 sm:transition">
+            <MongodbIcon />
+          </div>
         </div>
-        <div className="flex w-1 h-6"></div>
-        <div className="flex svg:w-6 svg:h-6 svg:p-1 border-2 border-orange-200 rounded-lg hover:border-blue-500 sm:hover:scale-105 sm:transition">
-          <TypescriptIcon />
-        </div>
-        <div className="flex w-1 h-6"></div>
-        <div className="flex svg:w-6 svg:h-6 svg:p-1 border-2 border-orange-200 rounded-lg hover:border-blue-500 sm:hover:scale-105 sm:transition">
-          <NextjsIcon />
-        </div>
-        <div className="flex w-1 h-6"></div>
-        <div className="flex svg:w-6 svg:h-6 svg:p-1 border-2 border-orange-200 rounded-lg hover:border-blue-500 sm:hover:scale-105 sm:transition">
-          <PythonIcon />
-        </div>
-        <div className="flex w-1 h-6"></div>
-        <div className="flex svg:w-6 svg:h-6 svg:p-1 border-2 border-orange-200 rounded-lg hover:border-blue-500 sm:hover:scale-105 sm:transition">
-          <MysqlIcon />
-        </div>
-        <div className="flex w-1 h-6"></div>
-        <div className="flex svg:w-6 svg:h-6 svg:p-1 border-2 border-orange-200 rounded-lg hover:border-blue-500 sm:hover:scale-105 sm:transition">
-          <SanityIcon />
-        </div>
-        <div className="flex w-1 h-6"></div>
-        <div className="flex svg:w-6 svg:h-6 svg:p-1 border-2 border-orange-200 rounded-lg hover:border-blue-500 sm:hover:scale-105 sm:transition">
-          <FoodIcon />
-        </div>
-        <div className="flex w-1 h-6"></div>
-        <div className="flex svg:w-6 svg:h-6 svg:p-1 border-2 border-orange-200 rounded-lg hover:border-blue-500 sm:hover:scale-105 sm:transition">
-          <TravelIcon />
-        </div>
-        <div className="flex w-1 h-6"></div>
-        <div className="flex svg:w-6 svg:h-6 svg:p-1 border-2 border-orange-200 rounded-lg hover:border-blue-500 sm:hover:scale-105 sm:transition">
-          <MusicIcon />
-        </div>
-        <div className="flex w-1 h-6"></div>
-        <div className="flex svg:w-6 svg:h-6 svg:p-1 border-2 border-orange-200 rounded-lg hover:border-blue-500 sm:hover:scale-105 sm:transition">
-          <YoutubeBlackIcon />
-        </div>
-        <div className="flex w-1 h-6"></div>
-        <div className="flex svg:w-6 svg:h-6 svg:p-1 border-2 border-orange-200 rounded-lg hover:border-blue-500 sm:hover:scale-105 sm:transition">
-          <YoutubeRedIcon />
-        </div>
-        <div className="flex w-1 h-6"></div>
-        <div className="flex svg:w-6 svg:h-6 svg:p-1 border-2 border-orange-200 rounded-lg hover:border-blue-500 sm:hover:scale-105 sm:transition">
-          <OpenaiIcon />
-        </div>
-        <div className="flex w-1 h-6"></div>
-        <div className="flex svg:w-6 svg:h-6 svg:p-1 border-2 border-orange-200 rounded-lg hover:border-blue-500 sm:hover:scale-105 sm:transition">
-          <CloudUploadIcon />
-        </div>
-        <div className="flex w-1 h-6"></div>
-        <div className="flex svg:w-6 svg:h-6 svg:p-1 border-2 border-orange-200 rounded-lg hover:border-blue-500 sm:hover:scale-105 sm:transition">
-          <CloudDownloadIcon />
-        </div>
-        <div className="flex w-1 h-6"></div>
-        <div className="flex svg:w-6 svg:h-6 svg:p-1 border-2 border-orange-200 rounded-lg hover:border-blue-500 sm:hover:scale-105 sm:transition">
-          <DockerIcon />
-        </div>
-        <div className="flex w-1 h-6"></div>
-        <div className="flex svg:w-6 svg:h-6 svg:p-1 border-2 border-orange-200 rounded-lg hover:border-blue-500 sm:hover:scale-105 sm:transition">
-          <MongodbIcon />
-        </div>
-        <div className="flex w-1 h-6"></div>
-        <div className="flex svg:w-6 svg:h-6 svg:p-1 border-2 border-orange-200 rounded-lg hover:border-blue-500 sm:hover:scale-105 sm:transition">
-          <DisneyIcon />
-        </div>
-        <div className="flex w-1 h-6"></div>
-        <div className="flex svg:w-6 svg:h-6 svg:p-1 border-2 border-orange-200 rounded-lg hover:border-blue-500 sm:hover:scale-105 sm:transition">
-          <GalleryIcon />
-        </div>
-        <div className="flex w-1 h-6"></div>
-        <div className="flex svg:w-6 svg:h-6 svg:p-1 border-2 border-orange-200 rounded-lg hover:border-blue-500 sm:hover:scale-105 sm:transition">
-          <MovieIcon />
+        <div className="flex items-center">
+          <div className="svg:w-6 svg:h-6 svg:p-1 border-2 border-orange-200 rounded-lg hover:border-blue-500 sm:hover:scale-105 sm:transition">
+            <DisneyIcon />
+          </div>
+          <div className="w-1 h-6"></div>
+          <div className="svg:w-6 svg:h-6 svg:p-1 border-2 border-orange-200 rounded-lg hover:border-blue-500 sm:hover:scale-105 sm:transition">
+            <GalleryIcon />
+          </div>
+          <div className="w-1 h-6"></div>
+          <div className="svg:w-6 svg:h-6 svg:p-1 border-2 border-orange-200 rounded-lg hover:border-blue-500 sm:hover:scale-105 sm:transition">
+            <MovieIcon />
+          </div>
         </div>
       </div>
-      <div className="mt-5 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
+      <div className="mt-56 sm:mt-32 lg:mt-24 xl:mt-16 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
         {posts &&
           posts.map((post) => (
             <Link

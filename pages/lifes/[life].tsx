@@ -1,39 +1,19 @@
 import { LPost, getLife } from "../../sanity/types";
-import { PortableText } from "@portabletext/react";
 import Image from "next/image";
-import Link from "next/link";
 
-import {
-  HamburgIcon,
-  LogoIcon,
-  NodejsIcon,
-  ExpressIcon,
-  MysqlIcon,
-  NextjsIcon,
-  ReactIcon,
-  SanityIcon,
-  PythonIcon,
-  FoodIcon,
-  MusicIcon,
-  TravelIcon,
-  YoutubeBlackIcon,
-  YoutubeRedIcon,
-  OpenaiIcon,
-  JavascriptIcon,
-  TypescriptIcon,
-  CloudUploadIcon,
-  CloudDownloadIcon,
-  DockerIcon,
-  MongodbIcon,
-  DisneyIcon,
-  GalleryIcon,
-  MovieIcon,
-} from "@/src/components/assets/icons";
-
-import { GetServerSideProps, GetStaticProps } from "next";
-import { PortableTextBlock } from "sanity";
+import Icons from "@/src/components/icons";
+// import { PortableText, PortableTextComponents } from "@portabletext/react";
+import PortableText from "react-portable-text";
+import urlBuilder from "@sanity/image-url";
+import { getImageDimensions } from "@sanity/asset-utils";
 
 // NEXT_SANITY_TOKENS=skRNeoOet8iIvOSTbnmIN2mhKM3CfBrkpwdJpVTDqx6NXvYLZjWmhNqDFOF4ZAzGgVIEt3YVuCkBOgjC58xjO7JmjOjoY0KNAYT47ljtMFhWbdcPsWwat9YV0J3aAamCYlGXbRmR05Ffek8K6G2tHry2yLa8aXiqL4rprVhwH748HGHXqozm
+
+const icon_list = [
+  { name: "/images/nodejs.png" },
+  { name: "/images/nodejs.png" },
+  { name: "/images/nodejs.png" },
+];
 
 export default function Life({ life }: { life: LPost }) {
   return (
@@ -67,7 +47,14 @@ export default function Life({ life }: { life: LPost }) {
             alt=""
           />
         </div>
-        <div className="mt-24 flex items-center">
+        <Icons
+          icons={[
+            { name: "/images/nodejs.png" },
+            { name: "/images/nodejs.png" },
+            { name: "/images/nodejs.png" },
+          ]}
+        />
+        {/* <div className="mt-24 flex items-center">
           <span className="svg:w-6 svg:h-6 svg:p-1 border-2 border-orange-200 rounded-lg hover:border-blue-500 sm:hover:scale-105 sm:transition">
             <NodejsIcon />
           </span>
@@ -79,9 +66,17 @@ export default function Life({ life }: { life: LPost }) {
           <span className="svg:w-6 svg:h-6 svg:p-1 border-2 border-orange-200 rounded-lg hover:border-blue-500 sm:hover:scale-105 sm:transition">
             <TypescriptIcon />
           </span>
-        </div>
+        </div> */}
         <div>
-          <PortableText value={life && life.content} />
+          <PortableText
+            content={life.content}
+            projectId="poxxqfti"
+            dataset="production"
+          />
+          {/* <PortableText
+            value={life.content}
+            components={myPortableTextComponents}
+          /> */}
         </div>
       </div>
     </section>
@@ -97,3 +92,96 @@ export async function getServerSideProps({ params }: Props) {
   const life = await getLife(slug);
   return { props: { life } };
 }
+
+// const components: PortableTextComponents = {
+//   list: {
+//     // Ex. 1: customizing common list types
+//     bullet: ({ children }) => <ul className="mt-xl">{children}</ul>,
+//     number: ({ children }) => <ol className="mt-lg">{children}</ol>,
+
+//     // Ex. 2: rendering custom lists
+//     checkmarks: ({ children }) => (
+//       <ol className="m-auto text-lg">{children}</ol>
+//     ),
+//   },
+// };
+
+// Barebones lazy-loaded image component
+// const SampleImageComponent = ({ value, isInline }) => {
+//   const { width, height } = getImageDimensions(value);
+//   return (
+//     <img
+//       src={urlBuilder()
+//         .image(value)
+//         .width(isInline ? 100 : 800)
+//         .fit("max")
+//         .auto("format")
+//         .url()}
+//       alt={value.alt || " "}
+//       loading="lazy"
+//       style={{
+//         // Display alongside text if image appears inside a block text span
+//         display: isInline ? "inline-block" : "block",
+
+//         // Avoid jumping around with aspect-ratio CSS property
+//         aspectRatio: width / height,
+//       }}
+//     />
+//   );
+// };
+
+const img_components = {
+  types: {
+    // image: SampleImageComponent,
+    // Any other custom types you have in your content
+    // Examples: mapLocation, contactForm, code, featuredProjects, latestNews, etc.
+  },
+};
+
+// const myPortableTextComponents: PortableTextComponents = {
+//   types: {
+//     image: ({ value, isInline }) => {
+//       const { width, height } = getImageDimensions(value);
+//       return (
+//         <img
+//           src={urlBuilder()
+//             .image(value)
+//             .width(isInline ? 100 : 800)
+//             .fit("max")
+//             .auto("format")
+//             .url()}
+//           alt={value.alt || " "}
+//           loading="lazy"
+//           style={{
+//             // Display alongside text if image appears inside a block text span
+//             display: isInline ? "inline-block" : "block",
+
+//             // Avoid jumping around with aspect-ratio CSS property
+//             aspectRatio: width / height,
+//           }}
+//         />
+//       );
+//     },
+// image: SampleImageComponent,
+// image: ({ value }) => <img src={value.imageUrl} />,
+// callToAction: ({ value, isInline }) =>
+//   isInline ? (
+//     <a href={value.url}>{value.text}</a>
+//   ) : (
+//     <div className="callToAction">{value.text}</div>
+//   ),
+//   },
+
+//   marks: {
+//     link: ({ children, value }) => {
+//       const rel = !value.href.startsWith("/")
+//         ? "noreferrer noopener"
+//         : undefined;
+//       return (
+//         <a href={value.href} rel={rel}>
+//           {children}
+//         </a>
+//       );
+//     },
+//   },
+// };

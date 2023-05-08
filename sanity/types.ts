@@ -34,8 +34,8 @@ export const sanityConfig = {
   useCdn: true,
 };
 
-export async function getPosts(): Promise<BPost[]> {
-  const posts = await createClient(sanityConfig).fetch(
+export async function getPosts() {
+  return await createClient(sanityConfig).fetch(
     groq`*[_type == "post"]{
       _id,
       _createdAt,
@@ -48,7 +48,6 @@ export async function getPosts(): Promise<BPost[]> {
       "content": body,
     }`
   );
-  return posts;
 }
 
 export async function getPost(slug: string): Promise<BPost> {
@@ -68,8 +67,8 @@ export async function getPost(slug: string): Promise<BPost> {
   );
 }
 
-export async function getLifes(): Promise<LPost[]> {
-  const lifes = await createClient(sanityConfig).fetch(
+export async function getLifes() {
+  return await createClient(sanityConfig).fetch(
     groq`*[_type == "life"]{
       _id,
       _createdAt,
@@ -82,10 +81,9 @@ export async function getLifes(): Promise<LPost[]> {
       "content": body,
     }`
   );
-  return lifes;
 }
 
-export async function getLife(slug: string): Promise<LPost> {
+export async function getLife(slug: string) {
   return await createClient(sanityConfig).fetch(
     groq`*[_type == "life" && slug.current == $slug][0]{
       _id,
