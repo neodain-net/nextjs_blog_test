@@ -47,13 +47,17 @@ export default function Life({ life }: { life: LPost }) {
             alt=""
           />
         </div>
-        <Icons
-          icons={[
-            { name: "/images/nodejs.png" },
-            { name: "/images/nodejs.png" },
-            { name: "/images/nodejs.png" },
-          ]}
-        />
+        <div className="mt-24 flex items-center">
+          <Icons
+            icons={[
+              { name: "/images/javascript.png" },
+              { name: "/images/typescript.png" },
+              { name: "/images/mysql.png" },
+              { name: "/images/react.png" },
+              { name: "/images/nodejs.png" },
+            ]}
+          />
+        </div>
         {/* <div className="mt-24 flex items-center">
           <span className="svg:w-6 svg:h-6 svg:p-1 border-2 border-orange-200 rounded-lg hover:border-blue-500 sm:hover:scale-105 sm:transition">
             <NodejsIcon />

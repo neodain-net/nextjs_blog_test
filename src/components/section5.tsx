@@ -1,32 +1,7 @@
-import { BPost, LPost, getLifes, getPosts } from "../../sanity/types";
 import Image from "next/image";
 import Link from "next/link";
-import {
-  HamburgIcon,
-  LogoIcon,
-  NodejsIcon,
-  ExpressIcon,
-  MysqlIcon,
-  NextjsIcon,
-  ReactIcon,
-  SanityIcon,
-  PythonIcon,
-  FoodIcon,
-  MusicIcon,
-  TravelIcon,
-  YoutubeBlackIcon,
-  YoutubeRedIcon,
-  OpenaiIcon,
-  JavascriptIcon,
-  TypescriptIcon,
-  CloudUploadIcon,
-  CloudDownloadIcon,
-  DockerIcon,
-  MongodbIcon,
-  DisneyIcon,
-  GalleryIcon,
-  MovieIcon,
-} from "@/src/components/assets/icons";
+import Icons from "./icons";
+import { BPost, LPost } from "../../sanity/types";
 
 // NEXT_SANITY_TOKENS=skRNeoOet8iIvOSTbnmIN2mhKM3CfBrkpwdJpVTDqx6NXvYLZjWmhNqDFOF4ZAzGgVIEt3YVuCkBOgjC58xjO7JmjOjoY0KNAYT47ljtMFhWbdcPsWwat9YV0J3aAamCYlGXbRmR05Ffek8K6G2tHry2yLa8aXiqL4rprVhwH748HGHXqozm
 
@@ -50,112 +25,69 @@ export default function section5({
           <p className="my-3">My Interests</p>
         </div>
         <div className="flex items-center">
-          <span className="svg:w-6 svg:h-6 svg:p-1 border-2 border-orange-200 rounded-lg hover:border-blue-500 sm:hover:scale-105 sm:transition">
-            <NodejsIcon />
-          </span>
-          <div className="w-1"></div>
-          <span className="svg:w-6 svg:h-6 svg:p-1 border-2 border-orange-200 rounded-lg hover:border-blue-500 sm:hover:scale-105 sm:transition">
-            <JavascriptIcon />
-          </span>
-          <div className="w-1"></div>
-          <span className="svg:w-6 svg:h-6 svg:p-1 border-2 border-orange-200 rounded-lg hover:border-blue-500 sm:hover:scale-105 sm:transition">
-            <TypescriptIcon />
-          </span>
+          <Icons
+            icons={[
+              { name: "/images/javascript.png" },
+              { name: "/images/typescript.png" },
+              { name: "/images/nodejs.png" },
+              { name: "/images/react.png" },
+              { name: "/images/nextjs.png" },
+            ]}
+          />
         </div>
       </div>
       <div className="mt-10 h-9 justify-center items-center grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 xl:grid-cols-5 gap-2">
         <div className="flex items-center">
-          <div className="svg:w-6 svg:h-6 svg:p-1 border-2 border-orange-200 rounded-lg hover:border-blue-500 sm:hover:scale-105 sm:transition">
-            <ReactIcon />
-          </div>
-          <div className="w-1 h-6"></div>
-          <div className="svg:w-6 svg:h-6 svg:p-1 border-2 border-orange-200 rounded-lg hover:border-blue-500 sm:hover:scale-105 sm:transition">
-            <ExpressIcon />
-          </div>
-          <div className="w-1 h-6"></div>
-          <div className="svg:w-6 svg:h-6 svg:p-1 border-2 border-orange-200 rounded-lg hover:border-blue-500 sm:hover:scale-105 sm:transition">
-            <NodejsIcon />
-          </div>
-          <div className="w-1 h-6"></div>
-          <div className="svg:w-6 svg:h-6 svg:p-1 border-2 border-orange-200 rounded-lg hover:border-blue-500 sm:hover:scale-105 sm:transition">
-            <JavascriptIcon />
-          </div>
-          <div className="w-1 h-6"></div>
-          <div className="svg:w-6 svg:h-6 svg:p-1 border-2 border-orange-200 rounded-lg hover:border-blue-500 sm:hover:scale-105 sm:transition">
-            <TypescriptIcon />
-          </div>
+          <Icons
+            icons={[
+              { name: "/images/javascript.png" },
+              { name: "/images/typescript.png" },
+              { name: "/images/nodejs.png" },
+              { name: "/images/react.png" },
+              { name: "/images/nextjs.png" },
+            ]}
+          />
         </div>
         <div className="flex items-center">
-          <div className="svg:w-6 svg:h-6 svg:p-1 border-2 border-orange-200 rounded-lg hover:border-blue-500 sm:hover:scale-105 sm:transition">
-            <NextjsIcon />
-          </div>
-          <div className="w-1 h-6"></div>
-          <div className="svg:w-6 svg:h-6 svg:p-1 border-2 border-orange-200 rounded-lg hover:border-blue-500 sm:hover:scale-105 sm:transition">
-            <PythonIcon />
-          </div>
-          <div className="w-1 h-6"></div>
-          <div className="svg:w-6 svg:h-6 svg:p-1 border-2 border-orange-200 rounded-lg hover:border-blue-500 sm:hover:scale-105 sm:transition">
-            <MysqlIcon />
-          </div>
-          <div className="w-1 h-6"></div>
-          <div className="svg:w-6 svg:h-6 svg:p-1 border-2 border-orange-200 rounded-lg hover:border-blue-500 sm:hover:scale-105 sm:transition">
-            <SanityIcon />
-          </div>
-          <div className="w-1 h-6"></div>
-          <div className="svg:w-6 svg:h-6 svg:p-1 border-2 border-orange-200 rounded-lg hover:border-blue-500 sm:hover:scale-105 sm:transition">
-            <OpenaiIcon />
-          </div>
+          <Icons
+            icons={[
+              { name: "/images/express.png" },
+              { name: "/images/python.png" },
+              { name: "/images/mysql.png" },
+              { name: "/images/sanity.png" },
+              { name: "/images/openai.png" },
+            ]}
+          />
         </div>
         <div className="flex items-center">
-          <div className="svg:w-6 svg:h-6 svg:p-1 border-2 border-orange-200 rounded-lg hover:border-blue-500 sm:hover:scale-105 sm:transition">
-            <FoodIcon />
-          </div>
-          <div className="w-1 h-6"></div>
-          <div className="flex svg:w-6 svg:h-6 svg:p-1 border-2 border-orange-200 rounded-lg hover:border-blue-500 sm:hover:scale-105 sm:transition">
-            <TravelIcon />
-          </div>
-          <div className="w-1 h-6"></div>
-          <div className="svg:w-6 svg:h-6 svg:p-1 border-2 border-orange-200 rounded-lg hover:border-blue-500 sm:hover:scale-105 sm:transition">
-            <MusicIcon />
-          </div>
-          <div className="w-1 h-6"></div>
-          <div className="svg:w-6 svg:h-6 svg:p-1 border-2 border-orange-200 rounded-lg hover:border-blue-500 sm:hover:scale-105 sm:transition">
-            <YoutubeBlackIcon />
-          </div>
-          <div className="w-1 h-6"></div>
-          <div className="svg:w-6 svg:h-6 svg:p-1 border-2 border-orange-200 rounded-lg hover:border-blue-500 sm:hover:scale-105 sm:transition">
-            <YoutubeRedIcon />
-          </div>
+          <Icons
+            icons={[
+              { name: "/images/mongodb.png" },
+              { name: "/images/docker.png" },
+              { name: "/images/cloud.png" },
+              { name: "/images/gallery.png" },
+              { name: "/images/disney.png" },
+            ]}
+          />
         </div>
         <div className="flex items-center">
-          <div className="svg:w-6 svg:h-6 svg:p-1 border-2 border-orange-200 rounded-lg hover:border-blue-500 sm:hover:scale-105 sm:transition">
-            <CloudUploadIcon />
-          </div>
-          <div className="w-1 h-6"></div>
-          <div className="svg:w-6 svg:h-6 svg:p-1 border-2 border-orange-200 rounded-lg hover:border-blue-500 sm:hover:scale-105 sm:transition">
-            <CloudDownloadIcon />
-          </div>
-          <div className="w-1 h-6"></div>
-          <div className="svg:w-6 svg:h-6 svg:p-1 border-2 border-orange-200 rounded-lg hover:border-blue-500 sm:hover:scale-105 sm:transition">
-            <DockerIcon />
-          </div>
-          <div className="w-1 h-6"></div>
-          <div className="svg:w-6 svg:h-6 svg:p-1 border-2 border-orange-200 rounded-lg hover:border-blue-500 sm:hover:scale-105 sm:transition">
-            <MongodbIcon />
-          </div>
+          <Icons
+            icons={[
+              { name: "/images/food.png" },
+              { name: "/images/travel.png" },
+              { name: "/images/music.png" },
+              { name: "/images/movie.png" },
+              { name: "/images/youtube.png" },
+            ]}
+          />
         </div>
         <div className="flex items-center">
-          <div className="svg:w-6 svg:h-6 svg:p-1 border-2 border-orange-200 rounded-lg hover:border-blue-500 sm:hover:scale-105 sm:transition">
-            <DisneyIcon />
-          </div>
-          <div className="w-1 h-6"></div>
-          <div className="svg:w-6 svg:h-6 svg:p-1 border-2 border-orange-200 rounded-lg hover:border-blue-500 sm:hover:scale-105 sm:transition">
-            <GalleryIcon />
-          </div>
-          <div className="w-1 h-6"></div>
-          <div className="svg:w-6 svg:h-6 svg:p-1 border-2 border-orange-200 rounded-lg hover:border-blue-500 sm:hover:scale-105 sm:transition">
-            <MovieIcon />
-          </div>
+          <Icons
+            icons={[
+              { name: "/images/gallery.png" },
+              { name: "/images/disney.png" },
+            ]}
+          />
         </div>
       </div>
       <div className="mt-56 sm:mt-32 lg:mt-24 xl:mt-16 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
