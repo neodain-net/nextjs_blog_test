@@ -1,5 +1,6 @@
 import { BPost, getPost } from "../../sanity/types";
-import { PortableText } from "@portabletext/react";
+// import { PortableText } from "@portabletext/react";
+import PortableText from "react-portable-text";
 import Icons from "@/src/components/icons";
 import Image from "next/image";
 
@@ -32,16 +33,20 @@ export default function Post({ post }: { post: BPost }) {
         <div className="mt-24 flex items-center">
           <Icons
             icons={[
-              { name: "/images/javascript.png" },
-              { name: "/images/typescript.png" },
-              { name: "/images/mysql.png" },
-              { name: "/images/react.png" },
-              { name: "/images/nodejs.png" },
+              { path: "/images/javascript.png", name: "javascript" },
+              { path: "/images/typescript.png", name: "typescript" },
+              { path: "/images/mysql.png", name: "mysql" },
+              { path: "/images/react.png", name: "react" },
+              { path: "/images/nodejs.png", name: "nodejs" },
             ]}
           />
         </div>
-        <div>
-          <PortableText value={post.content} />
+        <div className="block__contents">
+          <PortableText
+            content={post.content}
+            projectId="poxxqfti"
+            dataset="production"
+          />
         </div>
       </div>
     </section>

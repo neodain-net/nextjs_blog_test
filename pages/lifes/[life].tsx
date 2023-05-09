@@ -9,12 +9,6 @@ import { getImageDimensions } from "@sanity/asset-utils";
 
 // NEXT_SANITY_TOKENS=skRNeoOet8iIvOSTbnmIN2mhKM3CfBrkpwdJpVTDqx6NXvYLZjWmhNqDFOF4ZAzGgVIEt3YVuCkBOgjC58xjO7JmjOjoY0KNAYT47ljtMFhWbdcPsWwat9YV0J3aAamCYlGXbRmR05Ffek8K6G2tHry2yLa8aXiqL4rprVhwH748HGHXqozm
 
-const icon_list = [
-  { name: "/images/nodejs.png" },
-  { name: "/images/nodejs.png" },
-  { name: "/images/nodejs.png" },
-];
-
 export default function Life({ life }: { life: LPost }) {
   return (
     <section className="container py-40 mt-20 mx-auto px-4 sm:px-5 md:px-20">
@@ -50,28 +44,15 @@ export default function Life({ life }: { life: LPost }) {
         <div className="mt-24 flex items-center">
           <Icons
             icons={[
-              { name: "/images/javascript.png" },
-              { name: "/images/typescript.png" },
-              { name: "/images/mysql.png" },
-              { name: "/images/react.png" },
-              { name: "/images/nodejs.png" },
+              { path: "/images/javascript.png", name: "javascript" },
+              { path: "/images/typescript.png", name: "typescript" },
+              { path: "/images/mysql.png", name: "mysql" },
+              { path: "/images/react.png", name: "react" },
+              { path: "/images/nodejs.png", name: "nodejs" },
             ]}
           />
         </div>
-        {/* <div className="mt-24 flex items-center">
-          <span className="svg:w-6 svg:h-6 svg:p-1 border-2 border-orange-200 rounded-lg hover:border-blue-500 sm:hover:scale-105 sm:transition">
-            <NodejsIcon />
-          </span>
-          <div className="w-1"></div>
-          <span className="svg:w-6 svg:h-6 svg:p-1 border-2 border-orange-200 rounded-lg hover:border-blue-500 sm:hover:scale-105 sm:transition">
-            <JavascriptIcon />
-          </span>
-          <div className="w-1"></div>
-          <span className="svg:w-6 svg:h-6 svg:p-1 border-2 border-orange-200 rounded-lg hover:border-blue-500 sm:hover:scale-105 sm:transition">
-            <TypescriptIcon />
-          </span>
-        </div> */}
-        <div>
+        <div className="block__contents">
           <PortableText
             content={life.content}
             projectId="poxxqfti"

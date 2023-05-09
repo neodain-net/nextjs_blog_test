@@ -23,7 +23,7 @@
     "rehype-autolink-headings": "^6.1.1",
     "rehype-highlight": "^5.0.2",
     "rehype-slug": "^5.0.1",
-    "sanity": "^3.9.1",
+    "sanity": "^3.10.0",
     "swiper": "^9.0.4",
     "swr": "^2.0.3"
   },

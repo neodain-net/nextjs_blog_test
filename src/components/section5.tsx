@@ -27,11 +27,11 @@ export default function section5({
         <div className="flex items-center">
           <Icons
             icons={[
-              { name: "/images/javascript.png" },
-              { name: "/images/typescript.png" },
-              { name: "/images/nodejs.png" },
-              { name: "/images/react.png" },
-              { name: "/images/nextjs.png" },
+              { path: "/images/javascript.png", name: "javascript" },
+              { path: "/images/typescript.png", name: "typescript" },
+              { path: "/images/nodejs.png", name: "nodejs" },
+              { path: "/images/react.png", name: "react" },
+              { path: "/images/nextjs.png", name: "nextjs" },
             ]}
           />
         </div>
@@ -40,52 +40,64 @@ export default function section5({
         <div className="flex items-center">
           <Icons
             icons={[
-              { name: "/images/javascript.png" },
-              { name: "/images/typescript.png" },
-              { name: "/images/nodejs.png" },
-              { name: "/images/react.png" },
-              { name: "/images/nextjs.png" },
+              { path: "/images/javascript.png", name: "javascript" },
+              { path: "/images/typescript.png", name: "typescript" },
+              { path: "/images/nodejs.png", name: "nodejs" },
+              { path: "/images/react.png", name: "react" },
+              { path: "/images/nextjs.png", name: "nextjs" },
             ]}
           />
         </div>
         <div className="flex items-center">
           <Icons
             icons={[
-              { name: "/images/express.png" },
-              { name: "/images/python.png" },
-              { name: "/images/mysql.png" },
-              { name: "/images/sanity.png" },
-              { name: "/images/openai.png" },
+              { path: "/images/express.png", name: "express" },
+              { path: "/images/python.png", name: "python" },
+              { path: "/images/mysql.png", name: "mysql" },
+              { path: "/images/sanity.png", name: "sanity" },
+              { path: "/images/openai.png", name: "openai" },
             ]}
           />
         </div>
         <div className="flex items-center">
           <Icons
             icons={[
-              { name: "/images/mongodb.png" },
-              { name: "/images/docker.png" },
-              { name: "/images/cloud.png" },
-              { name: "/images/gallery.png" },
-              { name: "/images/disney.png" },
+              { path: "/images/mongodb.png", name: "mongodb" },
+              { path: "/images/docker.png", name: "docker" },
+              { path: "/images/cloud.png", name: "cloud" },
+              { path: "/images/c++.png", name: "c++" },
+              { path: "/images/tailwind.png", name: "tailwind" },
             ]}
           />
         </div>
         <div className="flex items-center">
           <Icons
             icons={[
-              { name: "/images/food.png" },
-              { name: "/images/travel.png" },
-              { name: "/images/music.png" },
-              { name: "/images/movie.png" },
-              { name: "/images/youtube.png" },
+              { path: "/images/food.png", name: "food" },
+              { path: "/images/travel.png", name: "travel" },
+              { path: "/images/music.png", name: "music" },
+              { path: "/images/movie.png", name: "movie" },
+              { path: "/images/youtube.png", name: "youtube" },
             ]}
           />
         </div>
         <div className="flex items-center">
           <Icons
             icons={[
-              { name: "/images/gallery.png" },
-              { name: "/images/disney.png" },
+              { path: "/images/gallery.png", name: "gallery" },
+              { path: "/images/git.png", name: "git-hub" },
+              { path: "/images/git_black.png", name: "git-hub" },
+              { path: "/images/graphql.png", name: "graphql" },
+              { path: "/images/kafka.png", name: "kafka" },
+            ]}
+          />
+        </div>
+        <div className="flex items-center">
+          <Icons
+            icons={[
+              { path: "/images/gallery.png", name: "gallery" },
+              { path: "/images/disney.png", name: "disney" },
+              { path: "/images/photo.png", name: "photo" },
             ]}
           />
         </div>

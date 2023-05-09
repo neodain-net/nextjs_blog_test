@@ -82,6 +82,18 @@ ol {
   padding-inline-start: 40px;
 }
 
+.block__contents ul {
+  list-style-type: var(--royalBlue) square;
+  list-style-position: inside;
+  padding-left: 20px;
+}
+
+/* .block__contents ul li {
+  list-style-type: var(--royalBlue) square;
+  list-style-position: inside;
+  padding-left: 20px;
+} */
+
 p {
   display: block;
   margin-block-start: 1em;
@@ -91,8 +103,8 @@ p {
 }
 
 svg {
-  width: 2rem;
-  height: 2rem;
+  width: 2.4rem;
+  height: 2.4rem;
 }
 
 .logo-img {

@@ -1,16 +1,6 @@
 // import { useState, useRef, useEffect } from "react";
 import { useState, useRef } from "react";
-import {
-  HamburgIcon,
-  LogoIcon,
-  NodejsIcon,
-  ExpressIcon,
-  MysqlIcon,
-  NextjsIcon,
-  ReactIcon,
-  SanityIcon,
-  PythonIcon,
-} from "@/src/components/assets/icons";
+import { HamburgIcon, LogoIcon } from "@/src/components/assets/icons";
 // import { FaBars, FaTimes } from "react-icons/fa"
 import Link from "next/link";
 import * as data from "./menu.json";
@@ -91,7 +81,7 @@ export default function Nav() {
             return (
               <li key={item.title} className="menu-item sub-item">
                 <a
-                  href={item.subItems ? "#" : "/posts/service_c++"}
+                  href={item.subItems ? "#" : "/langs/service_c++"}
                   onClick={() => handleClick(index)}
                 >
                   {item.title}
@@ -102,7 +92,7 @@ export default function Nav() {
                     {item.subItems.map((subItem) => (
                       <li key={subItem.title} className="menu-item">
                         <a
-                          href={subItem.subItems ? "#" : "/posts/nodejs"}
+                          href={subItem.subItems ? "#" : "/langs/nodejs"}
                           onClick={() => handleClick(index)}
                         >
                           {subItem.title}
