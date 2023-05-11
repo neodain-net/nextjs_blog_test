@@ -1,13 +1,12 @@
 import mongoose from "mongoose";
-import ENV from "../config.env";
 
 export default async function connect() {
-  const db = await mongoose.connect(ENV.ATALAS_URL);
+  const db = await mongoose.connect(process.env.ATALAS_URL);
 
   if (mongoose.connection.readyState === 1) {
     console.log("Database Connected");
     return;
   }
 
-  console.log(`MongoDB successfully connected...! ${ENV.ATALAS_URL}`);
+  console.log(`MongoDB successfully connected...! ${process.env.ATALAS_URL}`);
 }

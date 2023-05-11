@@ -1,7 +1,6 @@
 import Message from "../../../../database/models/message.model";
 import Room from "../../../../database/models/room.model";
 import { Configuration, OpenAIApi } from "openai";
-import ENV from "../../../../config.env";
 
 /** GET: http://localhost:3000/api/chat/roomid */
 export async function getChat(req, res) {
@@ -38,7 +37,7 @@ export async function createChat(req, res) {
 
   //   /** CONFIG OPEN AI API */
   //   const config = new Configuration({
-  //     apiKey: ENV.OPENAI_API_KEY,
+  //     apiKey: process.env.OPENAI_API_KEY,
   //   });
 
   //   console.log(`apiKey : ${config.apiKey}`);
