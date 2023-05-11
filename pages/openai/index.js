@@ -1,4 +1,4 @@
-import Head from "next/Head";
+import Head from "next/head";
 
 /** import all components */
 import Aside from "../../src/components/openai/aside";
