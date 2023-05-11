@@ -3,7 +3,15 @@ import Link from "next/link";
 import Icons from "./icons";
 import { BPost, LPost } from "../../sanity/types";
 
-// NEXT_SANITY_TOKENS=skRNeoOet8iIvOSTbnmIN2mhKM3CfBrkpwdJpVTDqx6NXvYLZjWmhNqDFOF4ZAzGgVIEt3YVuCkBOgjC58xjO7JmjOjoY0KNAYT47ljtMFhWbdcPsWwat9YV0J3aAamCYlGXbRmR05Ffek8K6G2tHry2yLa8aXiqL4rprVhwH748HGHXqozm
+// export default {
+//   NEXT_SANITY_TOKENS:
+//     "skRNeoOet8iIvOSTbnmIN2mhKM3CfBrkpwdJpVTDqx6NXvYLZjWmhNqDFOF4ZAzGgVIEt3YVuCkBOgjC58xjO7JmjOjoY0KNAYT47ljtMFhWbdcPsWwat9YV0J3aAamCYlGXbRmR05Ffek8K6G2tHry2yLa8aXiqL4rprVhwH748HGHXqozm",
+//   ATALAS_URL:
+//     "mongodb+srv://neodain:Kht72eye2eye@neocluster.zxfoljf.mongodb.net/?retryWrites=true&w=majority",
+//   OPENAI_API_KEY: "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",
+//   BASE_URL: "https://neodain.netlyfy.app:3000/api",
+//   // BASE_URL: "http://localhost:3000/api",
+// };
 
 export default function section5({
   posts,
@@ -73,7 +81,7 @@ export default function section5({
         <div className="flex items-center">
           <Icons
             icons={[
-              { path: "/images/food.png", name: "food" },
+              { path: "/images/simple_food.png", name: "simple food" },
               { path: "/images/travel.png", name: "travel" },
               { path: "/images/music.png", name: "music" },
               { path: "/images/movie.png", name: "movie" },
@@ -86,7 +94,7 @@ export default function section5({
             icons={[
               { path: "/images/gallery.png", name: "gallery" },
               { path: "/images/git.png", name: "git-hub" },
-              { path: "/images/git_black.png", name: "git-hub" },
+              { path: "/images/git_black.png", name: "git black" },
               { path: "/images/graphql.png", name: "graphql" },
               { path: "/images/kafka.png", name: "kafka" },
             ]}
@@ -95,9 +103,10 @@ export default function section5({
         <div className="flex items-center">
           <Icons
             icons={[
+              { path: "/images/ai.png", name: "ai" },
               { path: "/images/gallery.png", name: "gallery" },
               { path: "/images/disney.png", name: "disney" },
-              { path: "/images/photo.png", name: "photo" },
+              { path: "/images/food.png", name: "food" },
             ]}
           />
         </div>

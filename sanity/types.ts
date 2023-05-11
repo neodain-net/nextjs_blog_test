@@ -1,5 +1,6 @@
 import { createClient, groq } from "next-sanity";
 import { PortableTextBlock } from "sanity";
+import ENV from "../config.env";
 
 export type BPost = {
   _id: string;
@@ -30,7 +31,7 @@ export const sanityConfig = {
   projectId: "poxxqfti",
   dataset: "production",
   apiVersion: "2023-04-24",
-  token: process.env.NEXT_SANITY_TOKENS,
+  token: ENV.NEXT_SANITY_TOKENS,
   useCdn: true,
 };
 
