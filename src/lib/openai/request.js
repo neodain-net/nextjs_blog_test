@@ -2,16 +2,14 @@ import ENV from "../../../config.env.js";
 
 export async function getAllRooms() {
   console.log(`baseurl : ${ENV.BASE_URL}`);
-  const { success, data } = await (
-    await fetch(`${ENV.BASE_URL}/room`, { mode: "no-cors" })
-  ).json();
+  const { success, data } = await (await fetch(`${ENV.BASE_URL}/room`)).json();
   if (!success) throw new Error("Error fetching rooms");
   return data;
 }
 
 export async function getMessages(roomid) {
   const { success, data } = await (
-    await fetch(`${ENV.BASE_URL}/chat/${roomid}`, { mode: "no-cors" })
+    await fetch(`${ENV.BASE_URL}/chat/${roomid}`)
   ).json();
   if (!success) throw new Error("Error fetching messages");
   return data;
@@ -20,7 +18,6 @@ export async function getMessages(roomid) {
 export async function createRoom() {
   const { success, data } = await (
     await fetch(`${ENV.BASE_URL}/room`, {
-      mode: "no-cors",
       method: "POST",
     })
   ).json();
@@ -31,7 +28,6 @@ export async function createRoom() {
 export async function deleteRoom(roomid) {
   const { success, data } = await (
     await fetch(`${ENV.BASE_URL}/room/${roomid}`, {
-      mode: "no-cors",
       method: "DELETE",
     })
   ).json();
@@ -44,7 +40,6 @@ export async function sendMessage({ roomid, message }) {
 
   const { success, data } = await (
     await fetch(`${ENV.BASE_URL}/chat/${roomid}`, {
-      mode: "no-cors",
       method: "POST",
       headers: {
         "Content-Type": "application/json",
