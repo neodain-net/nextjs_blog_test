@@ -1,5 +1,4 @@
 import ENV from "../../../config.env.js";
-import axios from "axios";
 
 export async function getAllRooms() {
   // console.log(`baseurl : ${ENV.BASE_URL}`);
@@ -28,14 +27,7 @@ export async function getAllRooms() {
 export async function getMessages(roomid) {
   const { success, data } =
     await // await fetch(`${ENV.BASE_URL}/chat/${roomid}`)
-    (
-      await fetch(`${ENV.BASE_URL}/chat/${roomid}`, {
-        method: "GET",
-        headers: {
-          "Content-Type": "application/json",
-        },
-      })
-    ).json();
+    (await fetch(`${ENV.BASE_URL}/chat/${roomid}`)).json();
   // (await fetch(`api/chat/${roomid}`)).json();
   if (!success) throw new Error("Error fetching messages");
   return data;

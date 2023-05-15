@@ -20,7 +20,7 @@ export default function Openai() {
     return <div className="text-center">Error : {error.message}</div>;
   if (!data) return <div className="text-center">No Messages</div>;
 
-  // console.log(data);
+  console.log(data);
 
   function onRoomClick(roomid) {
     data.filter((room) => {
