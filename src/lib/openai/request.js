@@ -2,9 +2,9 @@ import ENV from "../../../config.env.js";
 import axios from "axios";
 
 export async function getAllRooms() {
-  console.log(`baseurl : ${ENV.BASE_URL}`);
-  // const { success, data } = await (await fetch(`${ENV.BASE_URL}/room`)).json();
-  const { success, data } = await (await fetch(`api/room`)).json();
+  // console.log(`baseurl : ${ENV.BASE_URL}`);
+  const { success, data } = await (await fetch(`${ENV.BASE_URL}/room`)).json();
+  // const { success, data } = await (await fetch(`api/room`)).json();
   if (!success) throw new Error("Error fetching rooms");
   return data;
 }
@@ -28,15 +28,24 @@ export async function getAllRooms() {
 export async function getMessages(roomid) {
   const { success, data } =
     await // await fetch(`${ENV.BASE_URL}/chat/${roomid}`)
-    (await fetch(`api/chat/${roomid}`)).json();
+    (
+      await fetch(`${ENV.BASE_URL}/chat/${roomid}`, {
+        method: "GET",
+        headers: {
+          "Content-Type": "application/json",
+        },
+      })
+    ).json();
+  // (await fetch(`api/chat/${roomid}`)).json();
   if (!success) throw new Error("Error fetching messages");
   return data;
 }
 
 export async function createRoom() {
   const { success, data } = await // await fetch(`${ENV.BASE_URL}/room`, {
+  // await fetch(`api/room`, {
   (
-    await fetch(`api/room`, {
+    await fetch(`${ENV.BASE_URL}/room`, {
       method: "POST",
     })
   ).json();
@@ -47,8 +56,9 @@ export async function createRoom() {
 export async function deleteRoom(roomid) {
   const { success, data } =
     await // await fetch(`${ENV.BASE_URL}/room/${roomid}`, {
+    // await fetch(`api/room/${roomid}`, {
     (
-      await fetch(`api/room/${roomid}`, {
+      await fetch(`${ENV.BASE_URL}/room/${roomid}`, {
         method: "DELETE",
       })
     ).json();
@@ -61,8 +71,9 @@ export async function sendMessage({ roomid, message }) {
 
   const { success, data } =
     await // await fetch(`${ENV.BASE_URL}/chat/${roomid}`, {
+    // await fetch(`api/chat/${roomid}`, {
     (
-      await fetch(`api/chat/${roomid}`, {
+      await fetch(`${ENV.BASE_URL}/chat/${roomid}`, {
         method: "POST",
         headers: {
           "Content-Type": "application/json",

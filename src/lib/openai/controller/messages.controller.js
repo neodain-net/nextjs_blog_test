@@ -7,6 +7,7 @@ export async function getChat(req, res) {
   try {
     const { roomid } = req.query;
 
+    console.log(req);
     if (!roomid)
       return res.status(400).json({ error: "No room id present...!" });
 
