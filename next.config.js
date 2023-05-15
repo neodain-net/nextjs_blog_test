@@ -9,6 +9,14 @@ module.exports = {
       },
     ],
   },
+  async rewrites() {
+    return [
+      {
+        source: "/:path*",
+        destination: "https://neodain.up.railway.app/:path*",
+      },
+    ];
+  },
 };
 
 // NextJS 13 : /app 디렉토리를 사용하면 http://localhost:3000/의 홈 디렉토리 access 한다.
