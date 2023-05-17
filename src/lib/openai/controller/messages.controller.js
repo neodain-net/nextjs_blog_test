@@ -35,39 +35,44 @@ export async function createChat(req, res) {
 
   if (!rooms) return res.status(400).json({ error: "No room found...!" });
 
-  //   /** CONFIG OPEN AI API */
-  //   const config = new Configuration({
-  //     apiKey: process.env.OPENAI_API_KEY,
-  //   });
+  /** CONFIG OPEN AI API */
+  const config = new Configuration({
+    organization: process.env.OPENAI_ORGANIZATION,
+    apiKey: process.env.OPENAI_API_KEY,
+  });
 
-  //   console.log(`apiKey : ${config.apiKey}`);
+  console.log(`apiKey : ${config.apiKey}`);
 
-  //   const openai = new OpenAIApi(config);
+  const openai = new OpenAIApi(config);
 
-  //   console.log(openai);
+  // console.log(openai);
 
-  //   if (!config.apiKey) {
-  //     res.status(500).json({
-  //       error: { message: "OpenAI API key not configured" },
-  //     });
-  //     return;
-  //   }
+  if (!config.apiKey) {
+    res.status(500).json({
+      error: { message: "OpenAI API key not configured" },
+    });
+    return;
+  }
 
-  //   const completion = await openai.createCompletion({
-  //     model: "text-davinci-003",
-  //     prompt: question,
-  //     temperature: 0.5,
-  //     max_tokens: 100,
-  //     top_p: 1,
-  //   });
+  const completion = await openai.createCompletion({
+    model: "text-davinci-003",
+    prompt: question,
+    temperature: 0.5,
+    max_tokens: 300,
+    top_p: 1,
+  });
 
   /** specify data to the message model */
   const message = new Message({
     question,
-    // answer: completion.data.choices[0].text,
-    answer: "Now it doesn't work normally.",
+    answer: completion.data.choices[0].text,
+    // answer: "Now it doesn't work normally.",
     room: roomid,
   });
+
+  console.log(">>>>> completion : \n" + completion.data.choices[0].text);
+  console.log("\n>>>>> total tokens : " + completion.data.usage.total_tokens);
+  console.log("\n>>>>> completion ended ...");
 
   /** save data in the database */
   await message.save();

@@ -12,7 +12,7 @@ export default function Response({ ans }) {
         ></Image>
       </div>
       <div className="answer col-span-11 px-4">
-        <p className="text-lg py-4">{ans}</p>
+        <p className="text-lg py-4 whitespace-pre-wrap">{ans}</p>
       </div>
     </div>
   );
