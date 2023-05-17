@@ -108,12 +108,12 @@ export default function Nav() {
         </ul>
       </div>
       <button
-        className="navi-btn"
+        className="navi-btn justify-center"
         onClick={() => {
           setmobileMenu(!mobileMenu);
         }}
       >
-        <HamburgIcon />
+        <HamburgIcon w-12 h-12 />
       </button>
     </div>
   );

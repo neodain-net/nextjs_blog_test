@@ -36,10 +36,10 @@ export default function Openai() {
         <title>Neodain's OpenAI</title>
       </Head>
       <div className="grid grid-cols-6">
-        <div className="bg-gray-900 col-span-1 aside z-10 text-gray-50">
+        <div className="hidden md:grid bg-gray-900 md:col-span-1 z-10 text-gray-50">
           {data && <Aside getRooms={data} handler={onRoomClick}></Aside>}
         </div>
-        <div className="bg-gray-800 text-gray-50 col-span-5 min-h-screen h-full mb-40">
+        <div className="bg-gray-800 text-gray-50 col-span-6 sm:pl-10 md:col-span-5 min-h-screen h-full mb-40">
           {roomid ? <Chat roomid={roomid}></Chat> : <Banner />}
           {roomid && <Search roomid={roomid}></Search>}
         </div>

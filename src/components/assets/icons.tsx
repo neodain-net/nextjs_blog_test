@@ -5,7 +5,7 @@ export const LogoIcon = () => (
     viewBox="0 0 24 24"
     strokeWidth={1.5}
     stroke="currentColor"
-    className="w-8 h-8"
+    className="w-10 h-10"
   >
     <path
       strokeLinecap="round"
@@ -33,7 +33,7 @@ export const MoonIcon = () => (
 export const CopyIcon = () => (
   <svg
     xmlns="http://www.w3.org/2000/svg"
-    className="h-5 w-5"
+    className="h-6 w-6"
     viewBox="0 0 20 20"
     fill="#88d1ef"
   >
@@ -45,7 +45,7 @@ export const CopyIcon = () => (
 export const PasteIcon = () => (
   <svg
     xmlns="http://www.w3.org/2000/svg"
-    className="h-5 w-5"
+    className="h-6 w-6"
     viewBox="0 0 20 20"
     fill="#88d1ef"
   >
@@ -74,7 +74,7 @@ export const HamburgIcon = () => (
     xmlns="http://www.w3.org/2000/svg"
     viewBox="0 0 24 24"
     fill="currentColor"
-    className="w-6 h-6"
+    className="w-12 h-12"
   >
     <path
       fillRule="evenodd"
