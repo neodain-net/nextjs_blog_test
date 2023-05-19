@@ -6,6 +6,8 @@ const app = express();
 // Enable CORS
 app.use(cors());
 
+app.use(express.json());
+
 // Custom API route
 app.get("/api/post", (req, res) => {
   // Implement your MongoDB data retrieval logic here

@@ -82,6 +82,47 @@ ol {
   padding-inline-start: 40px;
 }
 
+/* code highlight start */
+/* 하이라이트 적용 
+step 1. highlight.js를 티스토리에 설치
+step 2. html 편집모드에서 코드를 삽입 (html이나 xml 마크업 언어를 삽입할 때는 &lt;(<) &gt;(>)룰 사용해서 마크업 필요)
+step 3. 자신이 원하는 syntax highlighting 스타일을 적용(https://github.com/isagalaev/highlight.js/tree/master/src/styles)
+
+t-story의 경우 : 블로그관리 > 꾸미기 > 스킨편집 > html 편집으로 이동해서 <head></head> 태그 안쪽에 아래와 같이 추가 해주면 설치 완료
+
+<script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/11.1.0/highlight.min.js"></script>
+<link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/11.1.0/styles/atom-one-dark-reasonable.min.css">
+<script>hljs.initHighlightingOnLoad();</script>
+*/
+
+code {
+  font-family: Consolas, Sans Mono, Courier, monospace;
+}
+
+code {
+  padding: 2px 5px;
+  border-radius: 10px;
+  margin: 0 2px;
+  border: 10px solid #282c34;
+}
+
+pre {
+  color: #555;
+  background-color: #f6f7f8;
+  margin: 28px auto;
+  word-wrap: break-word;
+  font-family: Menlo, Consolas, Monaco, monospace;
+  font-size: 14px;
+  line-height: 20px;
+  overflow-x: auto;
+}
+
+pre code.hljs {
+  padding: 9px;
+}
+/* highlight end  */
+
+/* Sanity list form */
 .block__contents ul {
   list-style-type: var(--royalBlue) square;
   list-style-position: inside;
