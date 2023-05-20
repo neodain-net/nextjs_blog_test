@@ -20,8 +20,8 @@ module.exports = {
   async rewrites() {
     return [
       {
-        source: "/openai/:path*",
-        destination: "http://localhost:3000/openai/:path*",
+        source: "/openai/",
+        destination: "http://localhost:3000/openai/index",
       },
       {
         source: "/api/:path*",
