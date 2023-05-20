@@ -25,7 +25,7 @@ module.exports = {
       },
       {
         source: "/api/room/",
-        destination: "https://neodain.vercel.app:3000/api/room/*",
+        destination: "https://neodain.vercel.app:3000/api/room/index",
       },
       {
         source: "/api/room/:path*",
