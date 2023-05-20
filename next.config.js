@@ -21,19 +21,19 @@ module.exports = {
     return [
       {
         source: "/openai/:path*",
-        destination: "http://localhost:3000/api/room/:path*",
+        destination: "https://neodain.vercel.app:3000/api/room/:path*",
       },
       {
         source: "/pages/api/room/",
-        destination: "http://localhost:3000/api/room/",
+        destination: "https://neodain.vercel.app:3000/api/room/",
       },
       {
         source: "/pages/api/room/:path*",
-        destination: "http://localhost:3000/api/room/:path*",
+        destination: "https://neodain.vercel.app:3000/api/room/:path*",
       },
       {
         source: "/pages/api/chat/:path*",
-        destination: "http://localhost:3000/api/chat/:path*",
+        destination: "https://neodain.vercel.app:3000/api/chat/:path*",
       },
     ];
   },
