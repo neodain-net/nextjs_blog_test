@@ -24,15 +24,15 @@ module.exports = {
         destination: "https://neodain.vercel.app:3000/api/room/:path*",
       },
       {
-        source: "/pages/api/room/",
-        destination: "https://neodain.vercel.app:3000/api/room/",
+        source: "/api/room/",
+        destination: "https://neodain.vercel.app:3000/api/room/*",
       },
       {
-        source: "/pages/api/room/:path*",
+        source: "/api/room/:path*",
         destination: "https://neodain.vercel.app:3000/api/room/:path*",
       },
       {
-        source: "/pages/api/chat/:path*",
+        source: "/api/chat/:path*",
         destination: "https://neodain.vercel.app:3000/api/chat/:path*",
       },
     ];
