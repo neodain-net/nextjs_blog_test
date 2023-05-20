@@ -19,10 +19,10 @@ module.exports = {
   },
   async rewrites() {
     return [
-      {
-        source: "/openai/:path*",
-        destination: "https://neodain.vercel.app:3000/api/room/:path*",
-      },
+      // {
+      //   source: "/openai/",
+      //   destination: "https://neodain.vercel.app:3000/openai/path*",
+      // },
       {
         source: "/api/room/",
         destination: "https://neodain.vercel.app:3000/api/room/index",
