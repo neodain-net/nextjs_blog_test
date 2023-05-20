@@ -21,11 +21,15 @@ module.exports = {
     return [
       {
         source: "/openai/",
-        destination: "http://localhost:3000/api/openai",
+        destination: "http://localhost:3000/api/:path*",
       },
       {
-        source: "/api/:path*",
-        destination: "http://localhost:3000/api/:path*",
+        source: "/api/room/:path*",
+        destination: "http://localhost:3000/api/room/:path*",
+      },
+      {
+        source: "/api/chat/:path*",
+        destination: "http://localhost:3000/api/chat/:path*",
       },
     ];
   },
