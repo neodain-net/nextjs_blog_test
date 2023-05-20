@@ -49,7 +49,6 @@
     "url": "git+https://github.com/neodain-net/nextjs_blog_test.git"
   },
   "keywords": [],
-  "proxy": "http://localhost:3000/api",
   "author": "",
   "license": "ISC",
   "bugs": {
