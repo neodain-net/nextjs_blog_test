@@ -21,7 +21,7 @@ module.exports = {
     return [
       {
         source: "/openai/",
-        destination: "http://localhost:3000/openai/index",
+        destination: "http://localhost:3000/api/openai",
       },
       {
         source: "/api/:path*",

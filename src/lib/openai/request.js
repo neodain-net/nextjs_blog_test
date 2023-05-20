@@ -2,7 +2,9 @@ import ENV from "../../../config.env.js";
 
 export async function getAllRooms() {
   // console.log(`baseurl : ${ENV.BASE_URL}`);
-  const { success, data } = await (await fetch(`${ENV.BASE_URL}/room`)).json();
+  const { success, data } = await (
+    await fetch(`${ENV.BASE_URL}/openai`)
+  ).json();
   // const { success, data } = await (await fetch(`api/room`)).json();
   if (!success) throw new Error("Error fetching rooms");
   return data;
