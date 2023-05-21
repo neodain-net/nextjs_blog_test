@@ -20,7 +20,6 @@ export default function Main({ roomid }) {
   if (messages.length === 0) return <NotFound></NotFound>;
 
   return (
-    // <main className={styles.container}>
     <main className="container px-10 sm:px-20 lg:px-10">
       {/* <div className="mx-auto w-3/5 py-5"> */}
       <div className="mx-auto w-full py-5">

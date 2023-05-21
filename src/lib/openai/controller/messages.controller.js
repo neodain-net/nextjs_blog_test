@@ -6,7 +6,7 @@ import { Configuration, OpenAIApi } from "openai";
 export async function getChat(req, res) {
   try {
     const { roomid } = req.query;
-
+    console.log(`this is testing >>>>> ${roomid}`);
     if (!roomid)
       return res.status(400).json({ error: "No room id present...!" });
 
@@ -41,7 +41,7 @@ export async function createChat(req, res) {
     apiKey: process.env.OPENAI_API_KEY,
   });
 
-  console.log(`apiKey : ${config.apiKey}`);
+  // console.log(`apiKey : ${config.apiKey}`);
 
   const openai = new OpenAIApi(config);
 
