@@ -13,6 +13,7 @@ import { getAllRooms } from "../../src/lib/openai/request";
 
 export default function Openai() {
   const [roomid, setRoomid] = useState(null);
+  const [openaiBtn, setOpenaiBtn] = useState(false);
   const { isLoading, isError, data, error } = useQuery("rooms", getAllRooms);
 
   if (isLoading) return <Loading></Loading>;
@@ -28,14 +29,28 @@ export default function Openai() {
     });
   }
 
+  function onOpenaiBtnClick(openaiBtn) {
+    setOpenaiBtn(!openaiBtn);
+  }
+
+  console.log(openaiBtn);
   return (
     <>
       <Head>
         <title>Neodain's OpenAI</title>
       </Head>
-      <div className="grid grid-cols-6">
-        <div className="hidden md:grid bg-gray-900 md:col-span-1 z-10 text-gray-50">
-          {data && <Aside getRooms={data} handler={onRoomClick}></Aside>}
+      <div className="grid">
+        <div className={openaiBtn ? "" : "grid-cols-6"}>
+          {/* <div className="hidden md:grid bg-gray-900 md:col-span-1 z-10 text-gray-50"> */}
+          <div className="md:grid bg-gray-900 md:col-span-1 z-10 text-gray-50">
+            {data && (
+              <Aside
+                getRooms={data}
+                handler={onRoomClick}
+                handler1={onOpenaiBtnClick}
+              ></Aside>
+            )}
+          </div>
         </div>
         <div className="bg-gray-800 text-gray-50 col-span-6 sm:pl-10 md:col-span-5 min-h-screen h-full mb-40">
           {roomid ? <Chat roomid={roomid}></Chat> : <Banner />}

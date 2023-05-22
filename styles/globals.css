@@ -167,7 +167,8 @@ body.hidden-scrolling {
   top: 0;
   left: 0;
   margin: 0 auto;
-  padding: 15px;
+  /* padding: 15px; */
+  padding: 45px;
   position: fixed;
   display: flex;
   width: 100%;
@@ -192,7 +193,7 @@ body.hidden-scrolling {
 
 .navi-container .navi-logo {
   display: flex;
-  padding: 0 10px;
+  padding: 0 20px;
   align-items: center;
 }
 
@@ -550,6 +551,40 @@ body.hidden-scrolling {
   padding: 0;
   position: absolute;
   color: #5073d4;
+}
+
+.openai-btn {
+  display: none;
+  top: 6.8rem;
+  left: 1.2rem;
+  width: 3rem;
+  height: 3rem;
+  padding: 0;
+  position: absolute;
+  color: #5073d4;
+}
+
+/* width가 640px보다 작아질 때 */
+@media screen and (max-width: 640px) {
+  .openai-btn {
+    display: block;
+    top: 6.8rem;
+    left: 1.2rem;
+    width: 3rem;
+    height: 3rem;
+    padding: 0;
+    position: absolute;
+    border: none;
+    background-color: var(--main-bg-color);
+    border-radius: 20%;
+    color: rgb(235, 229, 229);
+    z-index: 12;
+  }
+
+  .openai-btn:hover {
+    border: #92a7e7 solid;
+    cursor: pointer;
+  }
 }
 
 /* width가 950px보다 작아질 때 */

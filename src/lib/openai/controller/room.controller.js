@@ -13,7 +13,7 @@ export async function getAllRooms(req, res) {
 /** POST: http://localhost:3000/api/room */
 export async function createRoom(req, res) {
   try {
-    const len = await (await Room.find({})).length;
+    const len = (await Room.find({})).length;
 
     const defaultRoom = {
       name: `Room ${len + 1}`,
