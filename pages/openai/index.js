@@ -39,10 +39,16 @@ export default function Openai() {
       <Head>
         <title>Neodain's OpenAI</title>
       </Head>
-      <div className="grid">
-        <div className={openaiBtn ? "" : "grid-cols-6"}>
+      {/* <div className="grid"> */}
+      <div className="flex">
+        <div
+          className={
+            openaiBtn ? "grid-cols-6 col-span-6" : "grid-cols-6 col-span-6"
+          }
+        >
           {/* <div className="hidden md:grid bg-gray-900 md:col-span-1 z-10 text-gray-50"> */}
-          <div className="md:grid bg-gray-900 md:col-span-1 z-10 text-gray-50">
+          {/* <div className="md:grid bg-gray-900 sm:w-60 md:col-span-1 z-10 text-gray-50"> */}
+          <div className="md:grid bg-gray-900 sm:w-60 z-10 text-gray-50">
             {data && (
               <Aside
                 getRooms={data}
@@ -52,9 +58,11 @@ export default function Openai() {
             )}
           </div>
         </div>
-        <div className="bg-gray-800 text-gray-50 col-span-6 sm:pl-10 md:col-span-5 min-h-screen h-full mb-40">
-          {roomid ? <Chat roomid={roomid}></Chat> : <Banner />}
-          {roomid && <Search roomid={roomid}></Search>}
+        <div className={openaiBtn ? "col-span-6" : "col-span-6"}>
+          <div className="bg-gray-800 text-gray-50 col-span-6 sm:pl-2 md:col-span-5 min-h-screen h-full mb-40">
+            {roomid ? <Chat roomid={roomid}></Chat> : <Banner />}
+            {roomid && <Search roomid={roomid}></Search>}
+          </div>
         </div>
       </div>
     </>

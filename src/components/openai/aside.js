@@ -24,7 +24,7 @@ export default function Aside({ getRooms, handler, handler1 }) {
 
   return (
     // <aside className="invisible sm:visible w-0 fixed left-0 sm:w-60 h-screen bg-gray-900">
-    <aside className="fixed left-0 h-screen bg-gray-900">
+    <aside className="fixed sm:w-60 left-0 h-screen bg-gray-900">
       <div className="visible sm:invisible ">
         <button
           className="openai-btn justify-center"
@@ -38,21 +38,32 @@ export default function Aside({ getRooms, handler, handler1 }) {
         </button>
       </div>
       <div className={openaiBtn ? "visible w-full" : "invisible w-0"}>
-        <div className="pt-24 sm:visible fixed left-0 sm:w-60 h-screen bg-gray-900">
-          <div className="text-gray-50 flex flex-col items-center py-3 gap-5">
-            <div className={openaiBtn ? "mt-16 pl-10 w-full" : ""}>
+        <div className="pt-24 sm:visible fixed left-0 w-full sm:w-60 h-screen bg-gray-900">
+          <div className="text-gray-50 flex flex-col py-3 gap-5">
+            <div
+              className={
+                openaiBtn
+                  ? "mt-16 w-full h-20 sm:w-60 items-center justify-center flex"
+                  : "flex mx-5"
+              }
+            >
               <button
-                className="border rounded-md border-gray-600 w-4/5 hover:bg-indigo-600"
+                className={
+                  openaiBtn
+                    ? "flex justify-center items-center border rounded-md border-gray-600 w-full mx-5 hover:bg-indigo-600"
+                    : "flex justify-center items-center border rounded-md border-gray-600 sm:w-60 hover:bg-indigo-600"
+                }
                 onClick={() => {
                   createMutation.mutate();
                 }}
               >
-                <span className="block py-3">
-                  <BiPlus className="inline plus" size={16} /> New Chat
+                <span className="flex py-3">
+                  <BiPlus className="inline plus" size={16} />
                 </span>
+                <p className="flex px-2">New Chat</p>
               </button>
             </div>
-            <div className="chat_list w-full flex flex-col gap-4 px-3">
+            <div className="chat_list w-full flex flex-col gap-4 px-5">
               {getRooms.map((room, index) => {
                 return (
                   <div
