@@ -1,6 +1,8 @@
 import Image from "next/image";
+import Code from "./code";
 
 export default function Response({ ans }) {
+  const code = ans;
   return (
     <div className="grid grid-cols-12 py-4">
       <div className="icon max-h-16 col-span-1 bg-[#10a37f] mr-auto rounded-full p-2">
@@ -12,7 +14,8 @@ export default function Response({ ans }) {
         ></Image>
       </div>
       <div className="answer col-span-11 px-4">
-        <p className="text-lg py-4 whitespace-pre-wrap">{ans}</p>
+        {/* <p className="text-lg py-4 whitespace-pre-wrap">{code}</p>; */}
+        <Code text={code} />
       </div>
     </div>
   );

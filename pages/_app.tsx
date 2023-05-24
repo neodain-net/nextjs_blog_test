@@ -11,11 +11,9 @@ function MyApp({ Component, pageProps }: AppProps) {
   return (
     <QueryClientProvider client={queryclient}>
       <Hydrate state={pageProps.dehydratedState}>
+        <Nav />
         <div>
-          <Nav />
-          <div>
-            <Component {...pageProps} />
-          </div>
+          <Component {...pageProps} />
         </div>
       </Hydrate>
     </QueryClientProvider>
