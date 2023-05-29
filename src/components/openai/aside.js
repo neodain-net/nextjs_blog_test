@@ -38,7 +38,7 @@ export default function Aside({ getRooms, handler, handler1 }) {
         </button>
       </div>
       <div className={openaiBtn ? "visible w-full" : "invisible w-0"}>
-        <div className="pt-24 sm:visible fixed left-0 w-full sm:w-60 h-screen bg-gray-900">
+        <div className="pt-24 sm:visible fixed left-0 w-full h-full sm:w-60 sm:h-full bg-gray-900">
           <div className="text-gray-50 flex flex-col py-3 gap-5">
             <div
               className={

@@ -176,7 +176,7 @@ body.hidden-scrolling {
   align-items: center;
   justify-content: space-between;
   background-color: var(--main-bg-color);
-  z-index: 9;
+  z-index: 11;
   line-height: 1.5;
   font-family: "Raleway", sans-serif;
   font-weight: 400;

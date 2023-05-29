@@ -5,7 +5,7 @@ const CodeHighlight = ({ text }) => {
   // Create an array where odd indices will hold code and even indices will hold plain text
   const parts = (text || "").split("```");
 
-  console.log(text);
+  // console.log(text);
   return parts.map((part, index) => {
     // If the index is odd, this is a code block
     if (index % 2 === 1) {
@@ -29,7 +29,7 @@ const CodeHighlight = ({ text }) => {
       );
     } else {
       // This is a plain text block
-      return <p className="text-lg py-4 whitespace-pre-wrap">{part}</p>;
+      return <p className="text-md py-4 whitespace-pre-wrap">{part}</p>;
     }
   });
 };

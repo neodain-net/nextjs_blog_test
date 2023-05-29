@@ -21,10 +21,11 @@ export default function Main({ roomid }) {
 
   return (
     // <main className="container px-5 sm:px-20 lg:px-10 z-10">
-    <main className={styles.container}>
-      <div className="px-5 md:px-20 lg:px-10 z-10">
+    <main className="flex">
+      {/* <div className={styles.container}> */}
+      <div className="px-2 w-full sm:px-2 md:px-10 lg:px-20 z-9">
         {/* <div className="mx-auto w-3/5 py-5"> */}
-        <div className="mx-auto w-full py-5">
+        <div className="mx-auto w-full py-5 mt-20">
           {messages &&
             messages.map((message, index) => {
               return (
@@ -37,6 +38,7 @@ export default function Main({ roomid }) {
               );
             })}
         </div>
+        {/* </div> */}
       </div>
     </main>
   );

@@ -8,7 +8,7 @@ export default function format({ children }) {
       <Head>
         <title>Neodain's Blog</title>
       </Head>
-      <Header />
+      {/* <Header /> */}
       <main>{children}</main>
       <Footer />
     </>

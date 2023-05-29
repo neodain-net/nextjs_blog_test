@@ -3,12 +3,12 @@ import Link from "next/link";
 
 export default function Header() {
   return (
-    <header className="bg-gray-50 pt-20">
-      <div className="xl:container xl:mx-auto flex flex-col items-center sm:flex-row sm:justify-between text-center py-3">
-        <div className="md:flex-none w-96 order-2 sm:order-1 flex justify-center py-4 sm:py-0">
+    <section className="bg-gray-50 pt-20">
+      <div className="xl:container w-full xl:mx-auto flex flex-col items-center sm:flex-row sm:justify-between justify-center text-center py-3">
+        <div className="md:flex-none w-full order-2 sm:order-1 flex justify-center py-4 sm:py-0">
           <input type="text" className="input-text" placeholder="Search..." />
         </div>
-        <div className="shrink w-80 sm:order-2">
+        <div className="flex justify-center w-80 order-1 sm:order-2">
           <Link className="font-bold uppercase text-3xl" href={"/"}>
             Design
           </Link>
@@ -27,6 +27,6 @@ export default function Header() {
           </div>
         </div>
       </div>
-    </header>
+    </section>
   );
 }

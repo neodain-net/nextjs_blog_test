@@ -26,7 +26,7 @@ export default function Home({
       <Section1 posts={langs} />
       <Section2 posts={langs} />
       <Section3 posts={langs} />
-      <Section4 posts={langs} />
+      {/* <Section4 posts={langs} /> */}
       <Articles posts={langs} />
     </Format>
   );
