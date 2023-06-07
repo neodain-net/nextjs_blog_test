@@ -14,7 +14,11 @@ import { getAllRooms } from "../../src/lib/openai/request";
 export default function Openai() {
   const [roomid, setRoomid] = useState(null);
   const [openaiBtn, setOpenaiBtn] = useState(false);
-  const { isLoading, isError, data, error } = useQuery("rooms", getAllRooms);
+  // const { isLoading, isError, data, error } = useQuery("rooms", getAllRooms);
+  const { isLoading, isError, data, error } = useQuery({
+    queryKey: ["rooms"],
+    queryFn: () => getAllRooms(),
+  });
 
   if (isLoading) return <Loading></Loading>;
   if (isError)

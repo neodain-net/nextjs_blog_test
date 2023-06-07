@@ -47,8 +47,6 @@ export async function deleteRoom(roomid) {
 export async function sendMessage({ roomid, message }) {
   if (!roomid && !message) throw new Error("Invalid arguments");
 
-  console.log(message);
-
   const { success, data } = await (
     await fetch(`api/chat/${roomid}`, {
       method: "POST",
