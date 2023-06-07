@@ -30,7 +30,12 @@ export async function getMessages(roomid) {
 
 export async function createRoom() {
   const { success, data } = await (
-    await fetch("api/openai", { method: "POST" })
+    await fetch("api/openai", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+    })
   ).json();
   if (!success) throw new Error("Error fetching room");
   return data;

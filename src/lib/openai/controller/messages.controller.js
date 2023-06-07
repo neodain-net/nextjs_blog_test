@@ -61,6 +61,8 @@ export async function createChat(req, res) {
   //   top_p: 1,
   // });
   const messages = await Message.find({ room: roomid }, { __v: 0, room: 0 });
+  if (messages.length > 0) console.log(messages.length);
+  else console.log(">>>> No messages <<<<");
   console.log(messages);
 
   const setChatMsg = () => {
@@ -82,6 +84,14 @@ export async function createChat(req, res) {
       role: "user",
       content: question,
     });
+    if (messages.length === 0) {
+      console.log("messages is empty");
+      console.log(question.slice(0, 20));
+      const result = Room.updateOne(
+        { _id: roomid },
+        { $set: { name: question.slice(0, 20) } }
+      );
+    }
     console.log(chatMsg);
     return chatMsg;
   };
@@ -119,7 +129,7 @@ export async function createChat(req, res) {
     const message = new Message({
       question,
       // answer: completion.data.choices[0].text,
-      answer: data.choices[0].message.content,
+      answer: data.choices[0].message.content.trim(),
 
       // answer: "Now it doesn't work normally.",
       room: roomid,
@@ -128,7 +138,9 @@ export async function createChat(req, res) {
     // console.log(">>>>> completion : \n" + completion.data.choices[0].text);
     // console.log("\n>>>>> total tokens : " + completion.data.usage.total_tokens);
     // console.log("\n>>>>> completion ended ...");
-    console.log(">>>>> completion : \n" + data.choices[0].message.content);
+    console.log(
+      ">>>>> completion : \n" + data.choices[0].message.content.trim()
+    );
     console.log("\n>>>>> total tokens : " + data.usage.total_tokens);
     console.log("\n>>>>> completion ended ...");
 
