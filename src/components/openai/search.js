@@ -43,7 +43,7 @@ export default function Search({ roomid }) {
             <form className="flex w-full shadow-2xl" onSubmit={onSubmit}>
               <input
                 type="text"
-                className="w-full py-3 bg-transparent focus:outline-none text-lg"
+                className="w-full py-3 bg-transparent focus:outline-none text-sm"
                 autoFocus="autofocus"
                 placeholder="What are you looking for?"
                 value={search}

@@ -15,7 +15,8 @@ const CodeHighlight = ({ text }) => {
           language="javascript"
           lineProps={{
             style: {
-              wordBreak: "break-all",
+              // wordBreak: "break-all",
+              wordBreak: "break-word",
               whiteSpace: "pre-wrap",
               lineHeight: "2rem",
             },
@@ -29,7 +30,7 @@ const CodeHighlight = ({ text }) => {
       );
     } else {
       // This is a plain text block
-      return <p className="text-md py-4 whitespace-pre-wrap">{part}</p>;
+      return <p className="text-sm py-4 whitespace-pre-wrap">{part}</p>;
     }
   });
 };

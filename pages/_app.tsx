@@ -47,7 +47,7 @@ import { QueryClient, QueryClientProvider, Hydrate } from "react-query";
 const queryclient = new QueryClient({
   defaultOptions: {
     queries: {
-      refetchOnWindowFocus: false,
+      refetchOnWindowFocus: true,
     },
   },
 });

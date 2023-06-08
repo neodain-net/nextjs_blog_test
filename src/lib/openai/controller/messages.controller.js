@@ -6,7 +6,6 @@ import Room from "../../../../database/models/room.model";
 export async function getChat(req, res) {
   try {
     const { roomid } = req.query;
-    console.log(`this is testing >>>>> ${roomid}`);
     if (!roomid)
       return res.status(400).json({ error: "No room id present...!" });
 
@@ -61,37 +60,35 @@ export async function createChat(req, res) {
   //   top_p: 1,
   // });
   const messages = await Message.find({ room: roomid }, { __v: 0, room: 0 });
-  if (messages.length > 0) console.log(messages.length);
-  else console.log(">>>> No messages <<<<");
-  console.log(messages);
+  if (messages.length > 0)
+    console.log(`romm's message existed ! : [${messages.length}]`);
+  else {
+    console.log(">>>> No messages <<<<");
+    console.log(question.slice(0, 30));
+    await Room.findOneAndUpdate(
+      { name: rooms.name },
+      { name: question.slice(0, 30) },
+      { upsert: true }
+    );
+    console.log(">>>> Room name changed <<<<");
+  }
 
   const setChatMsg = () => {
-    var chatMsg = Array.from(
-      messages?.map(
-        (message) => (
-          {
-            role: "user",
-            content: message.question,
-          },
-          {
-            role: "assistant",
-            content: message.answer,
-          }
-        )
-      )
-    );
+    let chatMsg = [];
+    messages?.map((message) => {
+      chatMsg.push({
+        role: "user",
+        content: message.question,
+      });
+      chatMsg.push({
+        role: "assistant",
+        content: message.answer,
+      });
+    });
     chatMsg.push({
       role: "user",
       content: question,
     });
-    if (messages.length === 0) {
-      console.log("messages is empty");
-      console.log(question.slice(0, 20));
-      const result = Room.updateOne(
-        { _id: roomid },
-        { $set: { name: question.slice(0, 20) } }
-      );
-    }
     console.log(chatMsg);
     return chatMsg;
   };
@@ -113,7 +110,8 @@ export async function createChat(req, res) {
     body: JSON.stringify({
       model: "gpt-3.5-turbo",
       messages: setChatMsg(),
-      max_tokens: 1000,
+      max_tokens: 2000,
+      temperature: 0.5,
     }),
   };
 
@@ -123,41 +121,20 @@ export async function createChat(req, res) {
       options
     );
     const data = await response.json();
-    // res.send(data);
-
-    /** specify data to the message model */
     const message = new Message({
       question,
       // answer: completion.data.choices[0].text,
       answer: data.choices[0].message.content.trim(),
-
-      // answer: "Now it doesn't work normally.",
       room: roomid,
     });
 
-    // console.log(">>>>> completion : \n" + completion.data.choices[0].text);
-    // console.log("\n>>>>> total tokens : " + completion.data.usage.total_tokens);
-    // console.log("\n>>>>> completion ended ...");
-    console.log(
-      ">>>>> completion : \n" + data.choices[0].message.content.trim()
-    );
     console.log("\n>>>>> total tokens : " + data.usage.total_tokens);
-    console.log("\n>>>>> completion ended ...");
 
-    /** save data in the database */
     await message.save();
-
-    /** push message in the room model */
     rooms.messages.push(message._id);
-
-    /** save data in the room model */
     await rooms.save();
-
     return res.status(200).json({ success: true, data: message });
   } catch (error) {
     return console.error(error);
   }
 }
-
-/** DELETE: http://localhost:3000/api/chat/roomid */
-/** So, This is the exercise for you */

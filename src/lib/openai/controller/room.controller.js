@@ -1,4 +1,5 @@
 import Room from "../../../../database/models/room.model";
+import Message from "../../../../database/models/message.model";
 
 /** GET: http://localhost:3000/api/room */
 export async function getAllRooms(req, res) {
@@ -50,7 +51,15 @@ export async function deleteRoom(req, res) {
     const { id } = req.query;
     if (!id) return res.status(400).json({ error: "No chat id present...!" });
 
+    const messages = await Message.find({ room: id }, { __v: 0, room: 0 });
+    if (messages) {
+      messages?.map(async (message) => {
+        await Message.findByIdAndDelete(message._id);
+        console.log(`>>>> deleted messages : ${message._id} <<<<`);
+      });
+    }
     await Room.findByIdAndDelete(id);
+    console.log(`>>>> deleted room : ${id} <<<<`);
     return res.status(200).json({ success: true, deleted: id });
   } catch (error) {
     return res.status(400).json({ error });
