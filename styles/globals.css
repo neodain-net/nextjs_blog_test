@@ -103,7 +103,7 @@ code {
   padding: 2px 5px;
   border-radius: 10px;
   margin: 0 2px;
-  border: 10px solid #282c34;
+  /* border: 10px solid #282c34; */
 }
 
 pre {

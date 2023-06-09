@@ -9,23 +9,30 @@ const CodeHighlight = ({ text }) => {
   return parts.map((part, index) => {
     // If the index is odd, this is a code block
     if (index % 2 === 1) {
+      const lang = part.split("\n");
+      let codePart = "";
+      if (lang[0]) {
+        console.log(`[${lang[0]}]`);
+        const start = part.indexOf("\n");
+        codePart = part.substr(start, part.length);
+      }
       return (
         <SyntaxHighlighter
           key={index}
-          language="javascript"
+          language={lang[0]}
           lineProps={{
             style: {
-              // wordBreak: "break-all",
-              wordBreak: "break-word",
+              wordBreak: "break-all",
               whiteSpace: "pre-wrap",
-              lineHeight: "2rem",
+              lineHeight: "1.4rem",
+              fontSize: "1rem",
             },
           }}
           wrapLines={true}
-          showLineNumbers={true}
+          // showLineNumbers={true}
           style={vscDarkPlus}
         >
-          {part}
+          {codePart}
         </SyntaxHighlighter>
       );
     } else {

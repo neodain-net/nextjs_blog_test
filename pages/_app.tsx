@@ -57,9 +57,7 @@ function MyApp({ Component, pageProps }: AppProps) {
     <QueryClientProvider client={queryclient}>
       <Hydrate state={pageProps.dehydratedState}>
         <Nav />
-        <div>
-          <Component {...pageProps} />
-        </div>
+        <Component {...pageProps} />
       </Hydrate>
     </QueryClientProvider>
   );

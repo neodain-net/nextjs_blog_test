@@ -64,10 +64,10 @@ export async function createChat(req, res) {
     console.log(`romm's message existed ! : [${messages.length}]`);
   else {
     console.log(">>>> No messages <<<<");
-    console.log(question.slice(0, 30));
+    console.log(question.slice(0, 50));
     await Room.findOneAndUpdate(
       { name: rooms.name },
-      { name: question.slice(0, 30) },
+      { name: question.slice(0, 50) },
       { upsert: true }
     );
     console.log(">>>> Room name changed <<<<");
@@ -110,7 +110,7 @@ export async function createChat(req, res) {
     body: JSON.stringify({
       model: "gpt-3.5-turbo",
       messages: setChatMsg(),
-      max_tokens: 2000,
+      max_tokens: 3000,
       temperature: 0.5,
     }),
   };
