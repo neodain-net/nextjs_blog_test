@@ -13,7 +13,7 @@ export default function Ask({ q }) {
         ></Image>
       </div>
       <div className="question px-4 flex flex-col justify-center">
-        <span className="text-md">{q}</span>
+        <span className="text-sm leading-6">{q}</span>
       </div>
     </div>
   );

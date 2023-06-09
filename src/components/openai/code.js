@@ -14,7 +14,7 @@ const CodeHighlight = ({ text }) => {
       if (lang[0]) {
         console.log(`[${lang[0]}]`);
         const start = part.indexOf("\n");
-        codePart = part.substr(start, part.length);
+        codePart = part.substr(start, part.length + 1);
       }
       return (
         <SyntaxHighlighter
@@ -24,7 +24,7 @@ const CodeHighlight = ({ text }) => {
             style: {
               wordBreak: "break-all",
               whiteSpace: "pre-wrap",
-              lineHeight: "1.0rem",
+              lineHeight: "1.4rem",
               fontSize: "1rem",
             },
           }}
@@ -37,7 +37,9 @@ const CodeHighlight = ({ text }) => {
       );
     } else {
       // This is a plain text block
-      return <p className="text-sm py-4 whitespace-pre-wrap">{part}</p>;
+      return (
+        <p className="text-sm py-4 leading-6 whitespace-pre-wrap">{part}</p>
+      );
     }
   });
 };
