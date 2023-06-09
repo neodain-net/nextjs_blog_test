@@ -24,7 +24,7 @@ const CodeHighlight = ({ text }) => {
             style: {
               wordBreak: "break-all",
               whiteSpace: "pre-wrap",
-              lineHeight: "1.4rem",
+              lineHeight: "1.0rem",
               fontSize: "1rem",
             },
           }}
