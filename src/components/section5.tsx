@@ -22,7 +22,7 @@ export default function section5({
     <section className="mt-20 mx-auto max-w-6xl px-4 sm:px-5 md:px-10 py-10">
       <div className="text-7xl text-center pb-12">
         <span className="font-extrabold bg-gradient-to-r from-orange-400 via-red-500 to-purple-600 bg-clip-text text-transparent">
-          Sanity Post
+          Testing Blog posting
         </span>
       </div>
       <div className="mt-24 grid grid-cols-1 sm:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 gap-5">

@@ -27,8 +27,7 @@ export default function Footer() {
           </div>
 
           <p className="py-5 text-gray-400">
-            Copyright ©2022 All rights reserved | This template is made with by
-            Daily Tuition
+            Copyright ©2023 All rights reserved. This is the testing Blog.
           </p>
           <p className="text-gray-400 text-center">Terms & Condition</p>
         </div>

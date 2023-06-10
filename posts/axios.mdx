@@ -1,0 +1,314 @@
+---
+title: Axios Usage
+tags:
+  - language
+  - javascript
+  - nodejs
+date: 2021-01-09
+excerpt: Axios is an HTTP asynchronous communication library
+cover_image: "/images/img1.png"
+profile_image: ""
+category: "language"
+star_rating: 0
+weather: Hot/Warm, Cold/Cool, Sunny/Rainy, Clear/Cloudy, Dry/Humid, Foggy/Misty, Gusty/Windy, Thunder/Lightning
+author: "neodain"
+---
+
+## 1. Introduction
+
+Axios is an HTTP asynchronous communication library that utilizes the Promise API for browsers and Node.js. it is used to make communication between the frontend and backend easier. Although JavaScript already has the fetch API, it is common to use Axios when implementing in frameworks.
+
+- Axios : Promise-based HTTP client for web browsers and Node.js
+- Main features : Simple syntax, Different request methods, Interceptors, Cancellation
+
+## 2. Axios Features
+
+- Depending on the operating environment, use the browser's XMLHttpRequest object or Node.js's http api.
+- Using Promise(ES6) API
+- Transformation of request and response data
+- HTTP request cancellation
+- Automatically change HTTP requests and responses to JSON format
+
+## 3. Axios vs Fetch
+
+<Image src="/images/axios.png" priority="true" width={600} height={600} />
+
+## 4. Installation & Usage
+
+### Installation (in Server Side)
+
+- Using NPM : `npm install axios`
+- Using yarn : `yarn add axios`
+
+### Installation (in Client Side(html)) : jsdelivr / unpkg cdn
+
+- `<script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>`
+- `<script src="https://unpkg.com/axios/dist/axios.min.js"></script>`
+
+### Data Handling
+
+Axios configurations
+
+```javascript
+axios({
+  url: "https://site/api/blog/category/food", // web document to communicate
+  method: "get", // method to communicate
+  data: {
+    // data to send as argument
+    foo: "diary",
+  },
+});
+```
+
+Axois Request parameter opthions
+
+- method: Request method. (get is default)
+- url: server address
+- baseURL: The address attached to the front of the url when writing the url as a relative path.
+  For example, if the url is /post and the baseURL is https://some-domain.com/api/,
+  The request goes to https://some-domain.com/api/post.
+- headers : request headers
+- data: Data sent to the body when the request method is 'PUT', 'POST', or 'PATCH'
+- params: URL parameters (representing the url get method requested with ?key=value as an object)
+- timeout : Request time in milliseconds before request timeout is triggered. If the request takes longer than the timeout, the request is canceled.
+- responseType: Specifies the type of data that the server responds to (arraybuffer, documentn, json, text, stream, blob)
+- responseEncoding : Encoding to use for decoding responses (utf-8)
+- transformRequest : Request data can be changed before it is passed to the server.
+  - Available for requests of 'PUT', 'POST', 'PATCH', 'DELETE'
+  - Array's last function returns string or Buffer, or ArrayBuffer
+  - header object can be modified
+- transformResponse : Can be transformed before response data is created
+- withCredentials: Whether to allow cross-site access-control requests. If this is set to true, the cookie value can be transmitted cross-origin.
+- auth: Used for basic authentication in HTTP. Basic authentication of HTTP is configurable via auth
+- maxContentLength: option to specify max size of http response content
+- validateStatus : Option to specify whether the return value of the promise is resolve or reject for the HTTP response status code
+  maxRedirects: Specifies the maximum number of redirects used in node.js
+- httpAgent / httpsAgent : Option to define a custom agent when requesting http or https in node.js
+  proxy: Option to define hostname and port of proxy server
+- cancelToken: Specifies the cancellation token used to cancel the request.
+
+```javascript
+axios({
+     method: "get", // communication method
+     url: "www.naver.com", // server
+     headers: {'X-Requested-With': 'XMLHttpRequest'} // set request headers
+     params: { api_key: "1234", langualge: "en" }, // pass parameters
+     responseType: 'json', // default
+
+     maxContentLength: 2000, // max size of http response content
+     validateStatus: function (status) {
+       return status >= 200 && status < 300; // default
+     }, // Specifies whether the return value of the promise will resolve or reject for the HTTP response status code.
+     proxy: {
+       host: '127.0.0.1',
+       port: 9000;
+       auth: {
+         username: 'user1',
+         password: 'user1pw12345'
+       }
+     }, // Define the hostname and port of the proxy server
+     maxRedirects: 5, // Specifies the maximum number of redirects used in node.js
+     httpsAgent: new https.Agent({ keepAlive: true }), // Define a custom agent when requesting https in node.js
+})
+.then(function (response) {
+     // response Action
+});
+```
+
+Axios Response data
+
+When a request is sent to the server through axios, the server processes it and returns data to the client.
+
+Receive this as a function argument (response) as .then, and the data contained in the object is the response data.
+
+The response information received from the server through ajax is as follows.
+
+```javascript
+axios({
+  method: "get", // the method to communicate with the server
+  url: "www.naver.com", // server URL
+}).then(function (response) {
+  console.log(response.data); // the response data
+  console.log(response.status); // the response status code : 200
+  console.log(response.statusText); // the response status text : "OK"
+  console.log(response.headers); // the response headers
+  console.log(response.config); // the response config
+});
+```
+
+#### Axios shorthand method
+
+For convenient use of axios, aliases are provided for all request methods.
+
+Request methods of axios typically include the following.
+
+- GET : axios.get(url[, config])
+
+```javascript
+// example-1
+const axios = require("axios"); // node.js
+
+axios
+  .get("/user?ID=12345")
+  .then(function (response) {
+    console.log(response);
+  })
+  .catch(function (error) {
+    console.log(error);
+  })
+  .finally(function () {});
+
+// example-2
+axios
+  .get("/user", {
+    params: {
+      ID: 12345,
+    },
+  })
+  .then(function (response) {
+    console.log(response);
+  })
+  .catch(function (error) {
+    console.log(error);
+  })
+  .finally(function () {
+    // always executed
+  });
+
+// example-3
+async function getUser() {
+  try {
+    const response = await axios.get("/user?ID=12345");
+    console.log(response);
+  } catch (error) {
+    console.error(error);
+  }
+}
+```
+
+- POST : axios.post(url, data[, config])
+
+```javascript
+axios
+  .post("url", {
+    firstName: "Fred",
+    lastName: "Flintstone",
+  })
+  .then(function (response) {})
+  .catch(function (error) {});
+```
+
+- PUT : axios.put(url, data[, config])
+
+```javascript
+axios
+  .put("url", {
+    username: "",
+    password: "",
+  })
+  .then(function (response) {})
+  .catch(function (error) {});
+```
+
+- DELETE : axios.delete(url[, config])
+
+```javascript
+axios
+  .delete("/user?ID=12345")
+  .then(function (response) {
+    console.log(response);
+  })
+  .catch(function (error) {
+    console.log(error);
+  });
+```
+
+Axios : Multi Request
+
+```javascript
+function getUserAccount() {
+  return axios.get("/user/12345");
+}
+
+function getUserPermissions() {
+  return axios.get("/user/12345/permissions");
+}
+
+axios.all([getUserAccount(), getUserPermissions()]).then(
+  axios.spread(function (acct, perms) {
+    // success
+  })
+);
+```
+
+Axios : Create a new instance
+
+Configuring Axios instances
+
+- Creating a custom Axios instance: `const customAxios = axios.create();`
+- Setting default configurations: Base URL, Headers, etc.
+
+```javascript
+//axios.create([config])
+
+const instance = axios.create({
+  baseURL: "https://some-domain.com/api/",
+  timeout: 1000,
+  headers: { "X-Custom-Header": "foobar" },
+});
+```
+
+Axois : Sending a formdata
+
+```javascript
+const addCustomer = () => {
+  const url = `/api/customers`;
+
+  const formData = new FormData();
+  formData.append("image", file);
+  formData.append("name", userName);
+  formData.append("birthday", birthday);
+  formData.append("gender", gender);
+  formData.append("job", job);
+
+  const config = {
+    headers: {
+      "content-type": "multipart/form-data",
+    },
+  };
+
+  return axios.post(url, formData, config);
+};
+```
+
+Axios : downloading from remote image source (blob)
+
+```javascript
+const imgurl = "https://images.google.com/";
+
+axios({
+  url: imgurl,
+  method: "GET",
+  responseType: "blob",
+}).then((response) => {
+  const url = URL.createObjectURL(new Blob([response.data])); // blob data -> objec url
+
+  // Auto Image downloading logic
+  const link = document.createElement("a");
+  link.href = url;
+  link.setAttribute("download", `sample.png`);
+  document.body.appendChild(link);
+  link.click();
+});
+```
+
+### Error handling
+
+- Status codes: 404 (Not Found), 500 (Internal Server Error), etc.
+- Detecting errors: Using the `.catch()` function
+
+### Interceptors
+
+- Request interceptors: Modify requests before they are sent
+- Response interceptors: Modify responses before they are processed
+- Syntax: `axios.interceptors.request.use()` and `axios.interceptors.response.use()`
