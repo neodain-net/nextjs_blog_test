@@ -1,0 +1,186 @@
+---
+title: How to come to passing data between parent and child components in NextJS(React).
+tags:
+  - language
+  - Typescript
+  - React
+  - NextJS
+date: 2023-03-18
+excerpt: In NextJS(React), when it comes to passing data between parent and child components, there are two main methods
+cover_image: "/images/img2.png"
+profile_image: ""
+category: "language"
+star_rating: 0
+weather: Hot/Warm, Cold/Cool, Sunny/Rainy, Clear/Cloudy, Dry/Humid, Foggy/Misty, Gusty/Windy, Thunder/Lightning
+author: "neodain"
+---
+
+In NextJS(React), when it comes to passing data between parent and child components, there are two main methods:
+
+- passing data down from parent to child via props.
+- passing data up from child to parent by means of callback functions.
+
+## 1. Passing data from parent to child components via props
+
+The example code of passing data from a parent component to a child component using TypeScript:
+
+```typescript
+// ParentComponent.tsx
+
+import React from "react";
+import ChildComponent from "./ChildComponent";
+
+interface ParentProps {
+  message: string;
+}
+
+const ParentComponent: React.FC<ParentProps> = ({ message }) => {
+  const data = "Hello from ParentComponent"; // the data sending to child component
+
+  return (
+    <div>
+      <h1>{message}</h1>
+      <ChildComponent parentData={data} />
+    </div>
+  );
+};
+
+export default ParentComponent;
+```
+
+```typescript
+// ChildComponent.tsx
+
+import React from "react";
+
+interface ChildProps {
+  parentData: string;
+}
+
+const ChildComponent: React.FC<ChildProps> = ({ parentData }) => {
+  return (
+    <div>
+      <h2>{parentData}</h2>
+    </div>
+  );
+};
+
+export default ChildComponent;
+```
+
+## 2. Passing data from child to parent components using callback functions
+
+The example code of passing data from a child component to a parent component using TypeScript:
+
+```typescript
+// ParentComponent.tsx
+
+import React, { useState } from "react";
+import ChildComponent from "./ChildComponent";
+
+interface ParentProps {
+  message: string;
+}
+
+const ParentComponent: React.FC<ParentProps> = ({ message }) => {
+  const [count, setCount] = useState<number>(0);
+
+  const handleCountChange = (newCount: number) => {
+    setCount(newCount);
+  };
+
+  return (
+    <div>
+      <h1>{message}</h1>
+      <p>Count: {count}</p>
+      <ChildComponent onCountChange={handleCountChange} />
+    </div>
+  );
+};
+
+export default ParentComponent;
+```
+
+The handler function is passed to the child component as Props, and the result of the handler function is passed from the child component to the parent component.
+
+```typescript
+// ChildComponent.tsx
+
+import React from "react";
+
+interface ChildProps {
+  onCountChange: (newCount: number) => void;
+}
+
+const ChildComponent: React.FC<ChildProps> = ({ onCountChange }) => {
+  const handleClick = () => {
+    onCountChange(1);
+  };
+
+  return (
+    <div>
+      <button onClick={handleClick}>Add One</button>
+    </div>
+  );
+};
+
+export default ChildComponent;
+```
+
+## 3. The other example code:
+
+```typescript
+// ParentComponent.tsx
+
+import { useState } from "react";
+import ChildComponent from "./ChildComponent";
+
+interface ParentComponentProps {
+  message: string;
+}
+
+const ParentComponent = ({ message }: ParentComponentProps) => {
+  const [count, setCount] = useState(0);
+
+  const handleCountChange = () => {
+    setCount(count + 1);
+  };
+
+  return (
+    <div>
+      <h1>{message}</h1>
+      <ChildComponent count={count} onCountChange={handleCountChange} />
+    </div>
+  );
+};
+
+export default ParentComponent;
+```
+
+```typescript
+// ChildComponent.tsx
+
+interface ChildComponentProps {
+  count: number;
+  onCountChange: () => void;
+}
+
+const ChildComponent = ({ count, onCountChange }: ChildComponentProps) => {
+  return (
+    <div>
+      <p>Count: {count}</p>
+      <button onClick={onCountChange}>Increment Count</button>
+    </div>
+  );
+};
+
+export default ChildComponent;
+```
+
+The guidance for avoiding errors when passing data between components:
+
+1. Make sure that the prop names match between parent and child components.
+2. Specify appropriate TypeScript types for the passed data, both on the parent and child side, to avoid type mismatches and inconsistencies.
+3. In the parent component's callback function, be sure to add error handling and null checks to prevent unexpected behavior at runtime.
+4. In cases where a component may not receive the expected prop or data, provide default or fallback values to avoid errors.
+5. When using higher-order components or context, always ensure that the data flow is as intended and data types are correctly specified to prevent unexpected issues.

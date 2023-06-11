@@ -1,0 +1,226 @@
+---
+title: Arrow function
+tags:
+  - language
+  - javascript
+date: 2023-04-10
+excerpt: A function expression introduced in ES6 that has a shorter syntax than the regular function expression.
+cover_image: "/images/img1.png"
+profile_image: ""
+category: "language"
+star_rating: 0
+weather: Hot/Warm, Cold/Cool, Sunny/Rainy, Clear/Cloudy, Dry/Humid, Foggy/Misty, Gusty/Windy, Thunder/Lightning
+author: "neodain"
+---
+
+# Definition of Arrow Function
+
+A function expression introduced in ES6 that has a shorter syntax than the regular function expression, and does not bind its own `this`, `arguments`, `super`, or `new.target`. It is always in the form of an anonymous function. This function expression is most suitable outside of method functions and thus cannot be used as constructors.
+
+```javascript
+Basic Syntax:
+(param1, param2, …, paramN) => { statements }
+(param1, param2, …, paramN) => expression
+// Same as:  => { return expression; }
+
+// Parentheses are optional when there's only one parameter:
+singleParam => { statements }
+
+// An arrow function with no parameters requires parentheses:
+() => { statements }
+
+Advanced Syntax:
+// Use parentheses to return an object literal expression:
+params => ({foo: bar})
+
+// Supports rest and default parameter values:
+(param1, param2, ...rest) => { statements }
+(param1 = defaultValue1, param2, …, paramN = defaultValueN) => { statements }
+
+// Destructuring within the parameter list is also supported:
+var f = ([a, b] = [1, 2], {x: c} = {x: a + b}) => a + b + c;
+f();  // 6
+
+Comparison with Function Expression:
+// Function (ES5)
+var selected = allJobs.filter(function (job) {
+  return job.isSelected();
+});
+
+// Arrow Function (ES6)
+var selected = allJobs.filter(job => job.isSelected());
+
+// Function (ES5)
+var total = values.reduce(function (a, b) {
+  return a + b;
+}, 0);
+
+// Arrow Function (ES6)
+var total = values.reduce((a, b) => a + b, 0);
+```
+
+## Features of Arrow Function
+
+1. Shorter functions:
+
+   With the Arrow Function, it is possible to write functions with a shorter syntax than traditional function expressions. For example:
+
+```javascript
+var elements = ["Hydrogen", "Helium", "Lithium", "Beryllium"];
+
+// This statement returns the array: [8, 6, 7, 9]
+elements.map(function (element) {
+  return element.length;
+});
+
+// The above function expression can be written with a shorter syntax using Arrow Function as follows:
+elements.map((element) => {
+  return element.length;
+}); // [8, 6, 7, 9]
+
+// When there is only one parameter, the surrounding parentheses can be omitted:
+elements.map((element) => {
+  return element.length;
+}); // [8, 6, 7, 9]
+
+// When the only statement in an arrow function is `return`, we can remove `return` and the surrounding curly brackets:
+elements.map((element) => element.length); // [8, 6, 7, 9]
+
+// We can also use destructuring parameter assignment:
+// `lengthFooBArX` is a mutable variable that can be changed to any valid variable name; 'length' is the property we want to get.
+elements.map(({ length: lengthFooBArX }) => lengthFooBArX); // [8, 6, 7, 9]
+
+// We can also use destructuring parameter assignment without making a variable, like this:
+elements.map(({ length }) => length); // [8, 6, 7, 9]
+```
+
+2. Unbound `this`:
+
+   In traditional function expressions, the `this` keyword is bound to different objects based on the context in which it was called. With Arrow Function, the value of `this` is not defined, and it will always be the same value as the value of `this` in its parent context. It can be treated as a closure. For example:
+
+```javascript
+// Traditional Function Expression
+function Person() {
+  this.age = 0;
+
+  setInterval(function growUp() {
+    // In non-strict mode, the growUp() function is executed with `this`
+    // bound to the global object, instead of the person object that
+    // we expect. Therefore, `this.age` does not increment.
+    this.age++;
+  }, 1000);
+}
+
+var p = new Person();
+
+//--------------------------------------------------------//
+
+// In ES5, we can fix the above issue by assigning this to a variable
+// within the outer function, which then can be used by the inner function.
+function Person() {
+  var that = this;
+  that.age = 0;
+
+  setInterval(function growUp() {
+    // The callback refers to the `that` variable of which
+    // the value is the expected object.
+    that.age++;
+  }, 1000);
+}
+
+//--------------------------------------------------------//
+
+// With Arrow Function, we can eliminate the need to use a variable:
+function Person() {
+  this.age = 0;
+
+  setInterval(() => {
+    this.age++; // |this| is the person object
+  }, 1000);
+}
+
+var p = new Person();
+```
+
+## Cases where Arrow Function should not be used:
+
+1. Method
+   When defining `methods` (i.e., functions inside objects) because Arrow Function's `this` will point to the global object (instead of the object that owns the method):
+
+```javascript
+// Bad
+const person = {
+  name: "Lee",
+  sayHi: () => console.log(`Hi ${this.name}`),
+};
+
+person.sayHi(); // Hi undefined
+
+// Good
+const person = {
+  name: "Lee",
+  sayHi() {
+    console.log(`Hi ${this.name}`);
+  },
+};
+
+person.sayHi(); // Hi Lee
+```
+
+2. Prototype
+   Same as with methods.
+
+```javascript
+// Bad
+const person = {
+name: 'Lee',
+};
+
+Object.prototype.sayHi = () => console.log(Hi ${this.name});
+
+person.sayHi(); // Hi undefined
+
+// Good
+const person = {
+name: 'Lee',
+};
+
+Object.prototype.sayHi = function() {
+console.log(Hi ${this.name});
+};
+
+person.sayHi(); // Hi Lee
+```
+
+3. Constructor function
+   Arrow functions do not have prototype properties.
+
+```javascript
+const Foo = () => {};
+
+// Arrow functions do not have prototype properties.
+console.log(Foo.hasOwnProperty("prototype")); // false
+
+const foo = new Foo(); // TypeError: Foo is not a constructor
+```
+
+4. Using 'this' inside the callback function of the addEventListener function:
+   When defining the callback function of the addEventListener function with an arrow function, 'this' will point to the global context, which is the 'window' object.
+
+```javascript
+// Bad
+var button = document.getElementById("myButton");
+
+button.addEventListener("click", () => {
+  console.log(this === window); // => true
+  this.innerHTML = "Clicked button";
+});
+
+// Good
+var button = document.getElementById("myButton");
+
+button.addEventListener("click", function () {
+  console.log(this === button); // => true
+  this.innerHTML = "Clicked button";
+});
+```
