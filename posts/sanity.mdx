@@ -1,0 +1,338 @@
+---
+title: How to use Sanity with NextJS 13 through SSR
+tags:
+  - language
+  - typescript
+  - nextjs
+  - sanity
+date: 2023-06-10
+excerpt: Let's learn how to display the added and updated content from Sanity Studio by directly applying it through SSR (Server-Side Rendering) in the NextJS 13 App.
+cover_image: "/images/img6.png"
+profile_image: ""
+category: "language"
+star_rating: 0
+weather: Hot/Warm, Cold/Cool, Sunny/Rainy, Clear/Cloudy, Dry/Humid, Foggy/Misty, Gusty/Windy, Thunder/Lightning
+author: "neodain"
+---
+
+## Purpose
+
+- Let's learn how to display the added and updated content from Sanity Studio by directly applying it through SSR (Server-Side Rendering) in the NextJS 13 App.
+
+- Next, Let's learn how to display the added and updated content from Sanity Studio by applying it during the build time (SSG: Static-Site Generation) in the NextJS 13 App.
+
+## 1. Starting Sanity.io (Install Sanity Studio)
+
+```bash
+$> mkdir test && cd test
+$> npm create sanity@latest
+
+- Create new project
+- Project name : Next Sanity Studio
+- Project output path : ~/next-sanity-studio
+- select project template : Clean project with no predefined schemas
+
+$> cd next-sanity-studio
+$> npm run dev
+
+- Connect to localhost(http://localhost:3333) and Google Log in.
+```
+
+Overview Sanity.io (Sanity Studio)
+
+- Edit sanity.config.ts file
+
+```javascript
+- Check sanity.config.ts
+- Information needed by the NextJS13 App : projectId, dataset
+
+export const defineConfig({
+  projectId: "your project ID",
+  dataset: "your dataset",
+//   title: "Next Sanity Studio",
+//   apiVersion: "2023-04-24",
+//   basePath: "/admin",
+//   plugins : [deskTool(), visionTool()],
+//   schema: { types: schemas },
+});
+
+// if you need
+- visonTool() : npm i @sanity/vision@dev-preview
+```
+
+- Check index.ts file in schemas directory.
+
+- Check Next Sanity Studio's Project in "manage.sanity.io"
+
+- Setting CORS origin : After click API, add "http://localhost:3000"
+
+## 2. Starting NextJS13 (13.0.0 : stable version)
+
+Install NextJS 13 (recommended version : 13.0.0)
+
+```bash
+npx create-next-app@13.0.0
+
+- Project named : next-sanity
+- use Typescript/ESLint : Yes (if you use typescript)
+- use src/ directory : No
+- experimental app/ directory : Yes (No, if you use previous source Pkg)
+- import alias : Yes
+
+The NextJS 13 app includes a new app folder, under which pages files and various other files are located. (experimental feature (appDir) in next.config.js)
+
+- Connect to localhost (http://localhost:3000)
+```
+
+Including Sanity Studio in NextJS 13
+
+```bash
+// Install Sanity module in NextJS project
+// Check package.json file after install.
+$ next-sanity > npm install sanity next-sanity
+```
+
+Create sanity.config.ts(js) file in NextJS 13 project folder
+
+```bash
+$ next-sanity > sanity.config.ts
+export const config = defineConfig({
+  projectId: "your project ID", // copy Sanity studio's projecID
+  dataset: "production",  // copy Sanity studio's dataset
+  title: "My Personal Website",
+  apiVersion: "2023-04-24",
+  basePath: "/admin", // for routing : http://localhost:3000/admin
+  plugins: [deskTool()],
+});
+```
+
+- Create folder & files
+
+```bash
+$ next-sanity > mkdir ~/app/admin
+$ next-sanity > mkdir ~/app/admin/[[...index]]
+$ next-sanity/app/admin/[[...index]] > page.tsx
+```
+
+- page.tsx
+
+```javascript
+"use client";
+
+import { config } from "../../../../sanity.config";
+import { NextStudio } from "next-sanity/studio";
+
+export default function AdminPage() {
+  return <NextStudio config={config} />;
+}
+```
+
+- Try to access Sanity Studio in NextJS 13
+
+```bash
+http://localhost:3000/admin
+```
+
+## 3. Create First Sanity Schema
+
+- create "~/next-sanity/sanity" folder
+- create "~/next-sanity/sanity/schema/project-schema.ts" file
+
+* Example : project-schema.ts
+
+```javascript
+const project = {
+  name: "project",
+  title: "Projects",
+  type: "document",
+  fields: [
+    {
+      name: "name",
+      title: "Name",
+      type: "string",
+    },
+    {
+      name: "slug",
+      title: "Slug",
+      type: "slug",
+      options: { source: "name" },
+    },
+    {
+      name: "image",
+      title: "Image",
+      type: "image",
+      options: { hotspot: true },
+      fields: [
+        {
+          name: "alt",
+          title: "Alt",
+          type: "string",
+        },
+      ],
+    },
+    {
+      name: "url",
+      title: "Url",
+      type: "url",
+    },
+    {
+      name: "contnt",
+      title: "Content",
+      type: "array",
+      of: [{ type: "block" }],
+    },
+  ],
+};
+
+export default project;
+```
+
+Modify sanity.config.ts file (~/next-sanity/sanity.config.ts)
+
+```javascript
+import { defineConfig } from "sanity";
+import { deskTool } from "sanity/desk";
+import project from "./sanity/schemas/project-schema";
+
+export const config = defineConfig({
+  projectId: "XXXXXXXX"
+  dataset: "production",
+  title: "My Personal Website",
+  apiVersion: "2023-04-24",
+  basePath: "/admin",
+  plugins: [deskTool()],
+  schema: { types: [project] },
+});
+```
+
+Reconfiguration
+
+- Create index.ts file in (~/next-sanity/sanity/schemas)
+
+```javascript
+import project from "./project-schema";
+
+const schemas = [project];
+
+export default schemas;
+```
+
+- Modify sanity.config.ts file (~/next-sanity/sanity.config.ts)
+
+```javascript
+import { defineConfig } from "sanity";
+import { deskTool } from "sanity/desk";
+// import project from "./sanity/schemas/project-schema";
+import schemas from './sanity/schemas'
+
+export const config = defineConfig({
+  projectId: "XXXXXXXX"
+  dataset: "production",
+  title: "My Personal Website",
+  apiVersion: "2023-04-24",
+  basePath: "/admin",
+  plugins: [deskTool()],
+  schema: { types: schemas },
+});
+```
+
+## 4. First GROQ Query
+
+Using GROQ Query to fetch data
+
+- Create (next-sanity/sanity/sanity-utils.ts) file
+
+```javascript
+import { createClient, groq } from "next-sanity";
+
+export async function getProjects() {
+  const client = createClient({
+    projectId: "poxxqfti",
+    dataset: "production",
+    apiVersion: "2023-04-24",
+  });
+
+  return client.fetch(
+    groq`*[_type == "project"] {
+        _id,
+        _createdAt,
+        name,
+        "slug": slug.current, 
+        "image": image.asset->url,
+        url,
+        content,
+    }`
+  );
+}
+```
+
+- Modify NextJS Home page : ~/app/page.tsx
+
+```javascript
+import { getProjects } from "../../sanity/sanity-utils";
+// import project from "../../sanity/schemas/project-schema";
+
+export default async function Home() {
+  const projects = await getProjects();
+
+  return (
+    <div>
+      {projects.map((project) => (
+        <div key={project._id}> {project.name}</div>
+      ))}
+    </div>
+  );
+}
+```
+
+### With the use of SSR instead of SSG, starting from NextJS 13, there is no need to use getStaticPath() and getStaticProps() to fetch Sanity data.
+
+## 5. Mapping over projects
+
+Define Types
+
+- Create (next-sanity/types) directory and "Project.ts" file
+- Define Project type in (next-sanity/types/Project.ts) file
+
+```javascript
+import { PortableTextBlock } from "sanity";
+
+export type Project = {
+  _id: string,
+  _createdAt: Date,
+  name: string,
+  slug: string,
+  image: string,
+  url: string,
+  content: PortableTextBlock[],
+};
+```
+
+File modification and type application
+
+- Modify (next-sanity/sanity/sanity-utils.ts) file
+
+```javascript
+import { createClient, groq } from "next-sanity";
+import { Project } from "../types/Project";
+
+export async function getProjects(): Promise<Project[]> {
+  const client = createClient({
+    projectId: "poxxqfti",
+    dataset: "production",
+    apiVersion: "2023-04-24",
+  });
+
+  return client.fetch(
+    groq`*[_type == "project"] {
+        _id,
+        _createdAt,
+        name,
+        "slug": slug.current, 
+        "image": image.asset->url,
+        url,
+        content,
+    }`
+  );
+}
+```

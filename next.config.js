@@ -17,6 +17,12 @@ module.exports = {
       },
     ],
   },
+
+  // Possible ways to fix it : If you want to use SWC despite the presence of a .babelrc file you can force it in your next.config.js file.
+  // experimental: {
+  //   forceSwcTransforms: true,
+  // },
+
   //   async rewrites() {
   //     return [
   //       {
