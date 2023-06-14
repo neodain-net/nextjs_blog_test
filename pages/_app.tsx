@@ -64,6 +64,3 @@ function MyApp({ Component, pageProps }: AppProps) {
 }
 
 export default MyApp;
-
-// 클라이언트 ID : 794349294411-3uhopjof1f09vfg7fmer7k4pjm9nh47s.apps.googleusercontent.com
-// 클라이언트 보안 비밀번호 : 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
