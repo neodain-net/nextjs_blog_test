@@ -1,5 +1,5 @@
 import { useRouter } from "next/router";
-import ReactPlayer from "react-player";
+// import ReactPlayer from "react-player";
 
 export default function LandingPage() {
   const router = useRouter();
