@@ -2,6 +2,7 @@ import type { GetStaticProps, GetStaticPaths } from "next";
 import Head from "next/head";
 import { getAllPosts, PostMeta } from "@/src/lib/api";
 import Articles from "@/src/components/articles";
+import Nav from "@/src/components/Nav";
 
 export default function TagPage({
   slug,
@@ -13,8 +14,9 @@ export default function TagPage({
   return (
     <>
       <Head>
-        <title>Tag: {slug}</title>
+        <title>{slug}</title>
       </Head>
+      <Nav />
       <div className="container pt-20">
         <h1>Tag: {slug}</h1>
         <Articles posts={posts} />

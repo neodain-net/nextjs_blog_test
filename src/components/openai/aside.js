@@ -38,7 +38,7 @@ export default function Aside({ getRooms, handler, handler1 }) {
         </button>
       </div>
       <div className={openaiBtn ? "visible w-full" : "invisible w-0"}>
-        <div className="pt-24 sm:visible fixed left-0 w-full h-full sm:w-60 sm:h-full bg-gray-900">
+        <div className="sm:visible fixed left-0 w-full h-full sm:w-60 sm:h-full bg-gray-900">
           <div className="text-gray-50 flex flex-col py-3 gap-5 justify-between w-full h-full">
             <div
               className={
@@ -51,7 +51,7 @@ export default function Aside({ getRooms, handler, handler1 }) {
                 className={
                   openaiBtn
                     ? "flex h-12 justify-center items-center border rounded-md border-gray-600 w-full mx-5 hover:bg-indigo-600"
-                    : "flex h-12 justify-center items-center border rounded-md border-gray-600 sm:w-60 hover:bg-indigo-600"
+                    : "flex h-12 mt-2 justify-center items-center border rounded-md border-gray-600 sm:w-60 hover:bg-indigo-600"
                 }
                 onClick={() => {
                   createMutation.mutate();

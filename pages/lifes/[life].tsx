@@ -1,6 +1,6 @@
 import { LPost, getLife } from "../../sanity/types";
 import Image from "next/image";
-
+import Nav from "@/src/components/Nav";
 import Icons from "@/src/components/icons";
 // import { PortableText, PortableTextComponents } from "@portabletext/react";
 import PortableText from "react-portable-text";
@@ -11,60 +11,65 @@ import { getImageDimensions } from "@sanity/asset-utils";
 
 export default function Life({ life }: { life: LPost }) {
   return (
-    <section className="container py-40 mt-20 mx-auto px-4 sm:px-5 md:px-20">
-      <div className="text-7xl text-center pb-12">
-        <span className="font-extrabold bg-gradient-to-r from-orange-400 via-red-500 to-purple-600 bg-clip-text text-transparent">
-          Sanity Post
-        </span>
-      </div>
-      <div className="mt-24">
-        <div className="font-bold text-gray-700 text-3xl">
-          <p className="my-3">My Life</p>
-          <p className="my-3 text-gray-500 text-xl">
-            title : {life && life.title}
-          </p>
-          <p className="my-3 text-gray-500 text-xl">
-            description : {life && life.description}
-          </p>
-          <p className="my-3 text-gray-500 text-xl">
-            publishedAt : {life && life.publishedAt.toString()}
-          </p>
-          <p className="my-3 text-gray-500 text-xl">
-            slug : {life && life.slug}
-          </p>
-          <p className="my-3 text-gray-500 text-xl">id : {life && life._id}</p>
-          <Image
-            className="object-cover rounded-lg border border-gray-500"
-            src={life && life.image}
-            width={750}
-            height={400}
-            alt=""
-          />
+    <>
+      <Nav />
+      <section className="container py-40 mt-20 mx-auto px-4 sm:px-5 md:px-20">
+        <div className="text-7xl text-center pb-12">
+          <span className="font-extrabold bg-gradient-to-r from-orange-400 via-red-500 to-purple-600 bg-clip-text text-transparent">
+            Sanity Post
+          </span>
         </div>
-        <div className="mt-24 flex items-center">
-          <Icons
-            icons={[
-              { path: "/images/javascript.png", name: "javascript" },
-              { path: "/images/typescript.png", name: "typescript" },
-              { path: "/images/mysql.png", name: "mysql" },
-              { path: "/images/react.png", name: "react" },
-              { path: "/images/nodejs.png", name: "nodejs" },
-            ]}
-          />
-        </div>
-        <div className="block__contents">
-          <PortableText
-            content={life.content}
-            projectId="poxxqfti"
-            dataset="production"
-          />
-          {/* <PortableText
+        <div className="mt-24">
+          <div className="font-bold text-gray-700 text-3xl">
+            <p className="my-3">My Life</p>
+            <p className="my-3 text-gray-500 text-xl">
+              title : {life && life.title}
+            </p>
+            <p className="my-3 text-gray-500 text-xl">
+              description : {life && life.description}
+            </p>
+            <p className="my-3 text-gray-500 text-xl">
+              publishedAt : {life && life.publishedAt.toString()}
+            </p>
+            <p className="my-3 text-gray-500 text-xl">
+              slug : {life && life.slug}
+            </p>
+            <p className="my-3 text-gray-500 text-xl">
+              id : {life && life._id}
+            </p>
+            <Image
+              className="object-cover rounded-lg border border-gray-500"
+              src={life && life.image}
+              width={750}
+              height={400}
+              alt=""
+            />
+          </div>
+          <div className="mt-24 flex items-center">
+            <Icons
+              icons={[
+                { path: "/images/javascript.png", name: "javascript" },
+                { path: "/images/typescript.png", name: "typescript" },
+                { path: "/images/mysql.png", name: "mysql" },
+                { path: "/images/react.png", name: "react" },
+                { path: "/images/nodejs.png", name: "nodejs" },
+              ]}
+            />
+          </div>
+          <div className="block__contents">
+            <PortableText
+              content={life.content}
+              projectId="poxxqfti"
+              dataset="production"
+            />
+            {/* <PortableText
             value={life.content}
             components={myPortableTextComponents}
           /> */}
+          </div>
         </div>
-      </div>
-    </section>
+      </section>
+    </>
   );
 }
 

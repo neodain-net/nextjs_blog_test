@@ -1,4 +1,3 @@
-import Nav from "@/src/components/Nav";
 import type { AppProps } from "next/app";
 import "@/styles/globals.css";
 
@@ -56,7 +55,6 @@ function MyApp({ Component, pageProps }: AppProps) {
   return (
     <QueryClientProvider client={queryclient}>
       <Hydrate state={pageProps.dehydratedState}>
-        <Nav />
         <Component {...pageProps} />
       </Hydrate>
     </QueryClientProvider>

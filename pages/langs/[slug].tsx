@@ -1,6 +1,7 @@
 import type { GetStaticProps, GetStaticPaths } from "next";
 import Image from "next/image";
 import Head from "next/head";
+import Nav from "@/src/components/Nav";
 import { MDXRemote, MDXRemoteSerializeResult } from "next-mdx-remote";
 import { serialize } from "next-mdx-remote/serialize";
 import rehypeSlug from "rehype-slug";
@@ -21,6 +22,7 @@ export default function PostPage({ post }: { post: MDXPost }) {
       <Head>
         <title>{post.meta.title}</title>
       </Head>
+      <Nav />
       <div className="container pt-20">
         <h1>{post.meta.title}</h1>
         <MDXRemote {...post.source} components={{ YouTube, Image }} />

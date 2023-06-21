@@ -32,6 +32,54 @@ body {
   background-size: cover; */
 }
 
+.landingpage {
+  width: 100%;
+  height: 100vh;
+}
+
+video {
+  width: 100%;
+  height: 100%;
+  /* object-fit: contain; */
+  object-fit: cover;
+}
+
+.overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 100%;
+  background-color: rgba(0, 0, 0, 0.5);
+  /* background-color: #000000cc; */
+}
+
+.content {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  color: white;
+}
+
+.home-btn {
+  margin-top: 2rem;
+  width: 12rem;
+  height: 4rem;
+  border: 2px solid white;
+  border-radius: 0.5em;
+  background-color: rgba(255, 255, 255, 0.457);
+  font-size: 2rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+}
+
 /* .home-section {
   width: 100%;
   display: block;
@@ -559,7 +607,8 @@ body.hidden-scrolling {
 
 .openai-btn {
   display: none;
-  top: 6.8rem;
+  /* top: 6.8rem; */
+  top: 1.2rem;
   left: 1.2rem;
   width: 3rem;
   height: 3rem;
@@ -572,7 +621,8 @@ body.hidden-scrolling {
 @media screen and (max-width: 640px) {
   .openai-btn {
     display: block;
-    top: 6.8rem;
+    /* top: 6.8rem; */
+    top: 1.2rem;
     left: 1.2rem;
     width: 3rem;
     height: 3rem;
